@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="a2-tiles-with-overlays_2" tilewidth="32" tileheight="32" tilecount="192">
+  <image source="a2-tiles-with-overlays_2.png" width="512" height="384"/>
+ </tileset>
+ <layer name="layer1" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYKQAkwOQ9ZJDj9o7au9gtJdcDACl9ABd
+  </data>
+ </layer>
+ <layer name="chao" width="15" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMGJGBkfWSQ4/aO2rvYLSXXAAA448Z+w==
+  </data>
+ </layer>
+</map>

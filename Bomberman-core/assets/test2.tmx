@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="8" tileheight="8" nextobjectid="1">
+ <tileset firstgid="1" name="blocks" tilewidth="8" tileheight="8" tilecount="48">
+  <image source="../../../../Desktop/res/maps/blocks.png" width="96" height="32"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzjY2Bg4KMDpiUYCXYQYzcxbhy1Y+jYQS0wasfQtIOSsnQw+WPUjlE7RrIdtMYAAKsGZw==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,365 @@
+!SESSION 2015-12-05 16:18:30.801 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.7.0_85
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 1 4 2015-12-05 16:21:28.587
+!MESSAGE The error reporting server is not available. Error reporting will be disabled until next restart. Version: 1.0.0.v20150617-0732
+!STACK 0
+org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException.newTrace(Logs.java:382)
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs.log(Logs.java:134)
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs.log(Logs.java:126)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.CheckServerAvailabilityJob.run(CheckServerAvailabilityJob.java:53)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 4 32 2015-12-05 16:21:29.789
+!MESSAGE Failed to do network communication. Please file a bug with the EPP Logging project (https://bugs.eclipse.org/bugs/enter_bug.cgi?product=EPP&component=logging) along with any information you can provide us with regarding your network settings. Please include the following information which will help us fix this issue: 
+Communication URL: http://download.eclipse.org/stats/technology/epp/logging/network-communication-test/apache/java-1.7.0_85/Linux-3.19.0-33-generic/Native-none/noProxyHost/noProxyUsername-noProxyPassword/
+Response Code: 404 - Not Found
+Response Headers:
+Date: Sat, 05 Dec 2015 18:21:29 GMT
+Server: Apache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 33
+Keep-Alive: timeout=5, max=999
+Connection: Keep-Alive
+Content-Type: text/html
+ Version: 1.0.0.v20150617-0732
+!STACK 0
+org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs$LogTraceException.newTrace(Logs.java:382)
+	at org.eclipse.epp.internal.logging.aeri.ui.l10n.Logs.log(Logs.java:134)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.NetworkCommunicationTestJob.doApacheHeadRequest(NetworkCommunicationTestJob.java:155)
+	at org.eclipse.epp.internal.logging.aeri.ui.log.NetworkCommunicationTestJob.run(NetworkCommunicationTestJob.java:88)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2015-12-05 16:39:01.415 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 16:57:32.665
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 16:57:32.666
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 16:57:32.666
+!MESSAGE Software being installed: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 16:57:32.666
+!MESSAGE Missing requirement: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r) requires 'org.eclipse.mylyn.team_feature.feature.group 3.5.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 16:57:32.717
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 16:57:32.717
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 16:57:32.718
+!MESSAGE Software being installed: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 16:57:32.718
+!MESSAGE Missing requirement: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r) requires 'org.eclipse.mylyn.team_feature.feature.group 3.5.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:02:18.419
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:02:18.419
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.419
+!MESSAGE Software being installed: Git Team Provider - experimental auto-import (Incubation) 4.1.1.201511131810-r (org.eclipse.egit.ui.importer 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.420
+!MESSAGE Missing requirement: Import framework 0.2.0.v20151123-1229 (org.eclipse.e4.ui.importer 0.2.0.v20151123-1229) requires 'bundle org.eclipse.core.jobs 3.7.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:02:18.420
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.420
+!MESSAGE From: Git Team Provider - experimental auto-import (Incubation) 4.1.1.201511131810-r (org.eclipse.egit.ui.importer 4.1.1.201511131810-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.421
+!MESSAGE To: bundle org.eclipse.e4.ui.importer 0.1.0
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:02:18.426
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:02:18.426
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.427
+!MESSAGE Software being installed: Git Team Provider - experimental auto-import (Incubation) 4.1.1.201511131810-r (org.eclipse.egit.ui.importer 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.427
+!MESSAGE Missing requirement: Import framework 0.2.0.v20151123-1229 (org.eclipse.e4.ui.importer 0.2.0.v20151123-1229) requires 'bundle org.eclipse.core.jobs 3.7.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:02:18.427
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.427
+!MESSAGE From: Git Team Provider - experimental auto-import (Incubation) 4.1.1.201511131810-r (org.eclipse.egit.ui.importer 4.1.1.201511131810-r)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:02:18.427
+!MESSAGE To: bundle org.eclipse.e4.ui.importer 0.1.0
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:04:05.474
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:04:05.475
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:04:05.475
+!MESSAGE Software being installed: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:04:05.475
+!MESSAGE Missing requirement: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r) requires 'org.eclipse.mylyn.team_feature.feature.group 3.5.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:04:05.487
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:04:05.488
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:04:05.488
+!MESSAGE Software being installed: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:04:05.488
+!MESSAGE Missing requirement: Eclipse Git Team Provider - Task focused interface 4.1.1.201511131810-r (org.eclipse.egit.mylyn.feature.group 4.1.1.201511131810-r) requires 'org.eclipse.mylyn.team_feature.feature.group 3.5.0' but it could not be found
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:10:19.230
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:10:19.231
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.231
+!MESSAGE Software being installed: Eclipse GitHub integration with task focused interface 3.6.0.201412130028 (org.eclipse.mylyn.github.feature.feature.group 3.6.0.201412130028)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.231
+!MESSAGE Missing requirement: Mylyn GitHub Connector UI 3.6.0.201412130028 (org.eclipse.mylyn.github.ui 3.6.0.201412130028) requires 'package org.eclipse.egit.ui [3.6.0,3.7.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:10:19.231
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.232
+!MESSAGE From: Eclipse GitHub integration with task focused interface 3.6.0.201412130028 (org.eclipse.mylyn.github.feature.feature.group 3.6.0.201412130028)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.232
+!MESSAGE To: org.eclipse.mylyn.github.ui [3.6.0.201412130028]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:10:19.242
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:10:19.242
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.244
+!MESSAGE Software being installed: Eclipse GitHub integration with task focused interface 3.6.0.201412130028 (org.eclipse.mylyn.github.feature.feature.group 3.6.0.201412130028)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.244
+!MESSAGE Missing requirement: Mylyn GitHub Connector UI 3.6.0.201412130028 (org.eclipse.mylyn.github.ui 3.6.0.201412130028) requires 'package org.eclipse.egit.ui [3.6.0,3.7.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:10:19.245
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.245
+!MESSAGE From: Eclipse GitHub integration with task focused interface 3.6.0.201412130028 (org.eclipse.mylyn.github.feature.feature.group 3.6.0.201412130028)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:10:19.245
+!MESSAGE To: org.eclipse.mylyn.github.ui [3.6.0.201412130028]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:14:26.236
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-12-05 17:14:26.236
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2015-12-05 17:14:26.236
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:14:26.237
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:14:26.237
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:14:26.237
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:14:26.238
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:14:26.702
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-12-05 17:14:26.702
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2015-12-05 17:14:26.702
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:14:26.702
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:14:26.703
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:14:26.703
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:14:26.703
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:20:26.531
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2015-12-05 17:20:26.531
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:20:26.531
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:20:26.531
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:20:26.532
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:20:26.532
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:20:26.534
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2015-12-05 17:20:26.534
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:20:26.534
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:20:26.535
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:20:26.535
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:20:26.535
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:22:44.483
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-12-05 17:22:44.483
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2015-12-05 17:22:44.484
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:22:44.484
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:22:44.484
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:22:44.484
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:22:44.484
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:22:44.727
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10001 2015-12-05 17:22:44.727
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 2 10013 2015-12-05 17:22:44.727
+!MESSAGE Eclipse CVS Client will be ignored because it is already installed, and updates are not permitted.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:22:44.727
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:22:44.728
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:22:44.728
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:22:44.728
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:23:51.759
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2015-12-05 17:23:51.759
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:23:51.759
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:23:51.759
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:23:51.759
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:23:51.760
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2015-12-05 17:23:51.762
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 1 10001 2015-12-05 17:23:51.762
+!MESSAGE Your original request has been modified.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:23:51.762
+!MESSAGE "Eclipse Java Development Tools" is already installed, so an update will be performed instead.
+!SUBENTRY 2 org.eclipse.equinox.p2.operations 1 10003 2015-12-05 17:23:51.763
+!MESSAGE "Eclipse Plug-in Development Environment" is already installed, so an update will be performed instead.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2015-12-05 17:23:51.763
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2015-12-05 17:23:51.763
+!MESSAGE org.eclipse.actf.visualization.sdk.feature.group [1.3.0.R201506071315] cannot be installed in this environment because its filter is not applicable.
+!SESSION 2015-12-06 09:24:47.935 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.7.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 4 77 2015-12-06 09:49:53.359
+!MESSAGE '/home/askoda/workspace' is not a valid location for linked resources.
+
+!ENTRY org.eclipse.jdt.core 4 4 2015-12-06 09:49:53.517
+!MESSAGE Exception while updating external folders
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: '/home/askoda/workspace' is not a valid location for linked resources.
+	at org.eclipse.core.internal.resources.Resource.assertLinkRequirements(Resource.java:181)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:673)
+	at org.eclipse.core.internal.resources.Resource.createLink(Resource.java:647)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:166)
+	at org.eclipse.jdt.internal.core.ExternalFoldersManager.createLinkFolder(ExternalFoldersManager.java:157)
+	at org.eclipse.jdt.internal.core.ExternalFolderChange.updateExternalFoldersIfNecessary(ExternalFolderChange.java:48)
+	at org.eclipse.jdt.internal.core.DeltaProcessor.resourceChanged(DeltaProcessor.java:2117)
+	at org.eclipse.jdt.internal.core.DeltaProcessingState.resourceChanged(DeltaProcessingState.java:470)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastBuildEvent(Workspace.java:381)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:139)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2015-12-06 09:49:53.540
+!MESSAGE '/home/askoda/workspace' is not a valid location for linked resources.
+
+!ENTRY org.eclipse.equinox.p2.ui 4 0 2015-12-06 09:51:02.554
+!MESSAGE Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:128)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.ProvisioningUI.loadMetadataRepository(ProvisioningUI.java:412)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getMetadataRepository(MetadataRepositoryElement.java:120)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.fetchChildren(MetadataRepositoryElement.java:70)
+	at org.eclipse.equinox.internal.p2.ui.model.RemoteQueriedElement.fetchDeferredChildren(RemoteQueriedElement.java:34)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1002 2015-12-06 09:51:02.562
+!MESSAGE Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+!STACK 0
+java.io.IOException: https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.ProvisioningUI.loadMetadataRepository(ProvisioningUI.java:412)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getMetadataRepository(MetadataRepositoryElement.java:120)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.fetchChildren(MetadataRepositoryElement.java:70)
+	at org.eclipse.equinox.internal.p2.ui.model.RemoteQueriedElement.fetchDeferredChildren(RemoteQueriedElement.java:34)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.ui 4 0 2015-12-06 09:51:03.634
+!MESSAGE Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:128)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.ProvisioningUI.loadMetadataRepository(ProvisioningUI.java:412)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getMetadataRepository(MetadataRepositoryElement.java:120)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getRepository(MetadataRepositoryElement.java:109)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getQueryable(MetadataRepositoryElement.java:103)
+	at org.eclipse.equinox.internal.p2.ui.QueryProvider.getQueryDescriptor(QueryProvider.java:88)
+	at org.eclipse.equinox.internal.p2.ui.model.QueriedElement.fetchChildren(QueriedElement.java:101)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.fetchChildren(MetadataRepositoryElement.java:72)
+	at org.eclipse.equinox.internal.p2.ui.model.RemoteQueriedElement.fetchDeferredChildren(RemoteQueriedElement.java:34)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	... 15 more
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1002 2015-12-06 09:51:03.636
+!MESSAGE Unable to read repository at https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip.
+!STACK 0
+java.io.IOException: https://libgdx.badlogicgames.com/nightlies/libgdx-nightly-20151204.zip is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:758)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.ProvisioningUI.loadMetadataRepository(ProvisioningUI.java:412)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getMetadataRepository(MetadataRepositoryElement.java:120)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getRepository(MetadataRepositoryElement.java:109)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.getQueryable(MetadataRepositoryElement.java:103)
+	at org.eclipse.equinox.internal.p2.ui.QueryProvider.getQueryDescriptor(QueryProvider.java:88)
+	at org.eclipse.equinox.internal.p2.ui.model.QueriedElement.fetchChildren(QueriedElement.java:101)
+	at org.eclipse.equinox.internal.p2.ui.model.MetadataRepositoryElement.fetchChildren(MetadataRepositoryElement.java:72)
+	at org.eclipse.equinox.internal.p2.ui.model.RemoteQueriedElement.fetchDeferredChildren(RemoteQueriedElement.java:34)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:235)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
