@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
@@ -101,8 +102,10 @@ public class Play extends GameState{
 			player.moveDown();
 		}
 		else if(GameKeys.isPressed(GameKeys.ENTER)&&player.estaParado()){
-			System.out.println("setbomb");
+			//System.out.println("setbomb");
 			this.setBomb();
+		} else if(player.estaParado()) {
+			player.animacaoParado();
 		}
 		
 	}
@@ -165,21 +168,21 @@ public class Play extends GameState{
 	}
 	
 	private void setBomb(){
-		BodyDef bdef= new BodyDef();
+		BodyDef bdef = new BodyDef();
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = new FixtureDef();
-	
 		
 		bdef.position.set((int)player.getPosition().x,(int)player.getPosition().y);
 		bdef.type = BodyType.StaticBody;
 		Body body = world.createBody(bdef);
 		shape.setAsBox(15/PPM, 15/PPM);
-		fdef.shape =shape;
-		fdef.isSensor=true;
+		fdef.shape = shape;
+		fdef.isSensor = true;
 		body.createFixture(fdef);
 		Bomb b = new Bomb(body);
 		bombs.add(b);
 		
+				
 	}
 	
 	private void createPlayer(){

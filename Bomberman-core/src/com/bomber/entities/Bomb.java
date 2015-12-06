@@ -2,6 +2,8 @@ package com.bomber.entities;
 
 import static handlers.B2DVars.PPM;
 
+
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.bomber.Game;
+import com.badlogic.gdx.graphics.g2d.Animation;
 
 import handlers.B2DVars;
 
@@ -19,6 +22,16 @@ public class Bomb extends B2DSprite {
 	private float time;
 	private int estado;
 	private boolean kabum;
+	
+	private Texture xpUp;
+	private Texture xpDown;
+	private Texture xpLeft;
+	private Texture xpRight;
+	private Texture xpCenter;
+	private Texture xpTipUp;
+	private Texture xpTipDown;
+	private Texture xpTipLeft;
+	private Texture xpTipRight;
 	
 	// ESTADOS
 	//0-normal(t<3)
@@ -30,6 +43,16 @@ public class Bomb extends B2DSprite {
 		time = 0;
 		estado = 0;
 		kabum = false;
+		xpUp = Game.res.getTexture("xpUp");
+		xpDown = Game.res.getTexture("xpDown");
+		xpRight = Game.res.getTexture("xpRight");
+		xpLeft = Game.res.getTexture("xpLeft");
+		xpCenter = Game.res.getTexture("xpCenter");
+		xpTipUp = Game.res.getTexture("xpTipUp");
+		xpTipDown = Game.res.getTexture("xpTipDown");
+		xpTipRight = Game.res.getTexture("xpTipRight");
+		xpTipLeft = Game.res.getTexture("xpTipLeft");
+		
 	}
 	
 	public void update(float dt) {
@@ -54,21 +77,54 @@ public class Bomb extends B2DSprite {
 	
 	public boolean kabumTime(){	return kabum; }
 	
+	/* (non-Javadoc)
+	 * @see com.bomber.entities.B2DSprite#render(com.badlogic.gdx.graphics.g2d.SpriteBatch)
+	 */
 	public void render (SpriteBatch sb){
+		float stateTime;
 		sb.begin();
 		if(estado==0){
 			Texture tex = Game.res.getTexture("bomba");
 			sb.draw(tex,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 		}
 		else if (estado==1) {
-			Texture tex = Game.res.getTexture("bomba2");
-			sb.draw(tex,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
+			Texture tex = Game.res.getTexture("bombaExp");
+			TextureRegion[] sprites = TextureRegion.split(tex, 32, 32)[0];
 		} else {
+			sb.draw(xpCenter,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 			Texture tex = Game.res.getTexture("red");
-			if((int)((this.getPosition().y-16)/32) %2!=0)
-				sb.draw(tex, (int)this.getPosition().x-(15+32*2),(int)this.getPosition().y-15 ,32*5,32);
-			if((int)((this.getPosition().x-16)/32) %2!=0)				
-				sb.draw(tex, (int)this.getPosition().x-15,(int)this.getPosition().y-(15+32*2) ,32,32*5);
+			
+			/** Verificando se há bloco à direita da bomba */
+			if((int)((this.getPosition().x-16)/32) < 13 && ((this.getPosition().y-16)/32)%2 != 0) {
+				sb.draw(xpRight,(int)body.getPosition().x-15+32, (int)body.getPosition().y-16,32,32);
+				if((int)((this.getPosition().x-16)/32) < 12)
+					sb.draw(xpTipRight,(int)body.getPosition().x-15+64, (int)body.getPosition().y-16,32,32);
+			}
+			
+			/** Verificando se há bloco à esquerda da bomba */
+			if((int)((this.getPosition().x-16)/32) > 1 && ((this.getPosition().y-16)/32)%2 != 0) {
+				sb.draw(xpLeft,(int)body.getPosition().x-16-32, (int)body.getPosition().y-16,32,32);
+				if((int)((this.getPosition().x-16)/32) > 2)
+					sb.draw(xpTipLeft,(int)body.getPosition().x-16-64, (int)body.getPosition().y-16,32,32);
+				
+			}
+			
+			/** Verificando se há bloco abaixo da bomba */
+			if((int)((this.getPosition().y-16)/32) > 1 && ((this.getPosition().x-16)/32)%2 != 0) {			
+				sb.draw(xpDown,(int)body.getPosition().x-16, (int)body.getPosition().y-16-32,32,32);
+				if((int)((this.getPosition().y-16)/32) > 2)
+					sb.draw(xpTipDown,(int)body.getPosition().x-16, (int)body.getPosition().y-16-64,32,32);
+				
+			}
+			
+			/** Verificando se há bloco acima da bomba */
+			if((int)((this.getPosition().y-16)/32) < 13 && ((this.getPosition().x-16)/32)%2 != 0) {			
+				sb.draw(xpUp,(int)body.getPosition().x-16, (int)body.getPosition().y-16+32,32,32);
+				if((int)((this.getPosition().y-16)/32) < 12)
+					sb.draw(xpTipUp,(int)body.getPosition().x-16, (int)body.getPosition().y-16+64,32,32);
+		
+			}
+			
 		}
 		
 		sb.end();
@@ -86,12 +142,12 @@ public class Bomb extends B2DSprite {
 			this.getBody().createFixture(fdef);
 		}
 		
-		if((int)((this.getPosition().x-16)/32) %2!=0){
-			shape.setAsBox((15)/PPM, (15+32*2)/PPM);
-			fdef.shape =shape;
-			fdef.isSensor=true;
-			this.getBody().createFixture(fdef);
-		}
+		//if((int)((this.getPosition().x-16)/32) %2!=0){
+			//shape.setAsBox((15)/PPM, (15+32*2)/PPM);
+			//fdef.shape =shape;
+			//fdef.isSensor=true;
+			//this.getBody().createFixture(fdef);
+		//}
 	}
 	
 }

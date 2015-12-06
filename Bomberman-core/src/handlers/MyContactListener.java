@@ -23,27 +23,26 @@ public class MyContactListener implements ContactListener{
 		Fixture fb = contact.getFixtureB();
 		
 		if(fa.getUserData()!=null&&fb.getUserData()!=null){
-		//System.out.println(fa.getUserData()+" <-fa , fb->"+fb.getUserData());
-		if (fa.getUserData()!=null&&fb.getUserData().equals("UP")){
+			//System.out.println(fa.getUserData()+" <-fa , fb->"+fb.getUserData());
+			if (fa.getUserData()!=null&&fb.getUserData().equals("UP")){				
+				ncu++;
+				//this.setBlockedUp(true);
+			}
 			
-			ncu++;
-			//this.setBlockedUp(true);
-		}
-		
-		if (fa.getUserData()!=null&&fb.getUserData().equals("DOWN")){
-			//this.setBlockedDown(true);
-			ncd++;
-		}
-		
-		if (fa.getUserData()!=null&&fb.getUserData().equals("LEFT")){
-			//this.setBlockedLeft(true);
-			ncl++;
-		}
-		
-		if (fa.getUserData()!=null&&fb.getUserData().equals("RIGHT")){
-			//this.setBlockedRight(true);
-			ncr++;
-		}
+			if (fa.getUserData()!=null&&fb.getUserData().equals("DOWN")){
+				//this.setBlockedDown(true);
+				ncd++;
+			}
+			
+			if (fa.getUserData()!=null&&fb.getUserData().equals("LEFT")){
+				//this.setBlockedLeft(true);
+				ncl++;
+			}
+			
+			if (fa.getUserData()!=null&&fb.getUserData().equals("RIGHT")){
+				//this.setBlockedRight(true);
+				ncr++;
+			}
 		}
 	}
 
@@ -63,15 +62,13 @@ public class MyContactListener implements ContactListener{
 			
 			if (fa.getUserData()!=null&&fb.getUserData().equals("DOWN")){
 				//this.setBlockedDown(false);
-				ncd--;
-				
+				ncd--;				
 			}
 			
 			if (fa.getUserData()!=null&&fb.getUserData().equals("LEFT")){
 				//this.setBlockedLeft(false);
 				//System.out.println("left liberado");
-				ncl--;
-				
+				ncl--;				
 			}
 			
 			if (fa.getUserData()!=null&&fb.getUserData().equals("RIGHT")){
@@ -79,52 +76,43 @@ public class MyContactListener implements ContactListener{
 				//System.out.println("right liberado");
 				ncr--;
 			}
-			}
+		}
 		
 	}
 
 	@Override
 	public void preSolve(Contact contact, Manifold oldManifold) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void postSolve(Contact contact, ContactImpulse impulse) {
 		// TODO Auto-generated method stub
-		
 	}
+	
 	public boolean isBlockedUp() {
-		if(ncu>0){
+		if(ncu>0)
 			return true;
-		}else{
+		else
 			return false;
-		}
-		
 	}
 
-	public void setBlockedUp(boolean blockedUp) {
-		this.blockedUp = blockedUp;
-	}
+	public void setBlockedUp(boolean blockedUp) { this.blockedUp = blockedUp; }
 
 	public boolean isBlockedDown() {
-		if(ncd>0){
+		if(ncd>0)
 			return true;
-		}else{
+		else
 			return false;
-		}
 	}
 
-	public void setBlockedDown(boolean blockedDown) {
-		this.blockedDown = blockedDown;
-	}
+	public void setBlockedDown(boolean blockedDown) { this.blockedDown = blockedDown; }
 
 	public boolean isBlockedLeft() {
-		if(ncl>0){
+		if(ncl>0)
 			return true;
-		}else{
+		else
 			return false;
-		}
 	}
 
 	public void setBlockedLeft(boolean blockedLeft) {
@@ -132,11 +120,10 @@ public class MyContactListener implements ContactListener{
 	}
 
 	public boolean isBlockedRight() {
-		if(ncr>0){
+		if(ncr>0)
 			return true;
-		}else{
+		else
 			return false;
-		}
 	}
 
 	public void setBlockedRight(boolean blockedRight) {

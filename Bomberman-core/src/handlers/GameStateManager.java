@@ -7,7 +7,6 @@ import com.bomber.states.GameState;
 import com.bomber.states.Play;
 
 public class GameStateManager {
-
 	
 	private Game game;
 
@@ -22,20 +21,12 @@ public class GameStateManager {
 		
 	}
 	
-	public Game game(){
-		
-		return game;
-	}
+	public Game game(){	return game; }
 	
-	public void update (float dt){
-		
-		gameStates.peek().update(dt);
-	}
-	public void render(){
-		
-		gameStates.peek().render();
-		
-	}
+	public void update (float dt){ gameStates.peek().update(dt); }
+	
+	public void render(){ gameStates.peek().render(); }
+	
 	private GameState getState(int state){
 		if(state == PLAY){return new Play(this);}
 		return null;
@@ -43,16 +34,10 @@ public class GameStateManager {
 	
 	public void setState( int state ){
 		popState();
-		pushState(state);
-		
+		pushState(state);	
 	}
 	
-	public void pushState (int state){
-		
-		gameStates.push(getState(state));
-		
-		
-	}
+	public void pushState (int state){ gameStates.push(getState(state)); }
 	
 	public void popState(){
 		GameState g = gameStates.pop();
