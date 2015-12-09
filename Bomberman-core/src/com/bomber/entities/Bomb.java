@@ -7,21 +7,31 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.bomber.Game;
 import com.badlogic.gdx.graphics.g2d.Animation;
 
 import handlers.B2DVars;
+import handlers.MyContactListener;
 
 public class Bomb extends B2DSprite {
 
 	private float time;
 	private int estado;
 	private boolean kabum;
+	
+	private MyContactListener cl;
+	
+	//variavel que diz se o player setou a bomba e ainda está em cima dela
+	private boolean playerEmCima;
+	
+	
 	
 	private Texture xpUp;
 	private Texture xpDown;
@@ -33,16 +43,17 @@ public class Bomb extends B2DSprite {
 	private Texture xpTipLeft;
 	private Texture xpTipRight;
 	
-	// ESTADOS
-	//0-normal(t<3)
-	//1-quase explodindo 3<t<4)
-	//2-explodir no prox update
+	// ESTADOS (definir melhores tempos)
+	//0-normal
+	//1-quase explodindo 
+	//2-explodir
 	
-	public Bomb(Body body) {
+	public Bomb(Body body,MyContactListener cl) {
 		super(body);		
 		time = 0;
 		estado = 0;
 		kabum = false;
+		playerEmCima = true;
 		xpUp = Game.res.getTexture("xpUp");
 		xpDown = Game.res.getTexture("xpDown");
 		xpRight = Game.res.getTexture("xpRight");
@@ -52,7 +63,7 @@ public class Bomb extends B2DSprite {
 		xpTipDown = Game.res.getTexture("xpTipDown");
 		xpTipRight = Game.res.getTexture("xpTipRight");
 		xpTipLeft = Game.res.getTexture("xpTipLeft");
-		
+		this.cl=cl;
 	}
 	
 	public void update(float dt) {
@@ -65,6 +76,40 @@ public class Bomb extends B2DSprite {
 	}
 	
 	private void atualizaEstado(){
+		
+		
+		
+		//obs tive varios problemas para fazer esta parte, a solução que encontrei para desbugar o contato foi recriar uma fixture
+		if(this.playerEmCima==true){
+			
+			//se o player n�o est� mais em cima desta bomba
+			if(!cl.isOnTop()){
+				//destroi a fixture antiga
+				this.getBody().destroyFixture(this.getBody().getFixtureList().first());
+				//mesmas caracteristicas porem n�o � mais um sensor
+				PolygonShape shape = new PolygonShape();
+				FixtureDef fdef = new FixtureDef();
+				shape.setAsBox(15/PPM, 15/PPM);
+				fdef.shape = shape;
+				fdef.filter.categoryBits = B2DVars.BIT_BOMB;
+				fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_PLAYER |
+						B2DVars.BIT_ENEMY;
+				fdef.isSensor = false;
+				body.setSleepingAllowed(false);
+				body.createFixture(fdef);
+				
+				
+				//renomeia para bomba ativa (só pra ajudar a desbugar):
+				//bomba inativa é um sensor
+				//bomba ativa não é sensor
+				
+				
+				this.getBody().getFixtureList().first().setUserData("bombaAtiva");
+				// boolean para não entrar mais nesse if
+				playerEmCima=false;
+			}
+		}
+		
 		if(time <= 2)
 			estado = 0;
 		else if(time >= 2 && time <= 3)
@@ -134,20 +179,21 @@ public class Bomb extends B2DSprite {
 		PolygonShape shape = new PolygonShape();
 		FixtureDef fdef = new FixtureDef();
 
-		if((int)((this.getPosition().y-16)/32) %2!=0){
+		if((int)((this.getPosition().y-16)/32) %2 != 0){
 			shape.setAsBox((15+32*2)/PPM, (15)/PPM);
-			fdef.shape =shape;
-			fdef.isSensor=true;
-			
-			this.getBody().createFixture(fdef);
+			fdef.shape = shape;
+			fdef.isSensor = true;
+			fdef.filter.categoryBits = B2DVars.BIT_EXPLOSION;
+			this.getBody().createFixture(fdef).setUserData("explosao");
 		}
 		
-		//if((int)((this.getPosition().x-16)/32) %2!=0){
-			//shape.setAsBox((15)/PPM, (15+32*2)/PPM);
-			//fdef.shape =shape;
-			//fdef.isSensor=true;
-			//this.getBody().createFixture(fdef);
-		//}
+		if((int)((this.getPosition().x-16)/32) %2 != 0){
+			shape.setAsBox((15)/PPM, (15+32*2)/PPM);
+			fdef.shape = shape;
+			fdef.filter.categoryBits = B2DVars.BIT_EXPLOSION;
+			fdef.isSensor = true;
+			this.getBody().createFixture(fdef).setUserData("explosao");
+		}
 	}
 	
 }

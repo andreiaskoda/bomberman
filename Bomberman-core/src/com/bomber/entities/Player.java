@@ -109,6 +109,7 @@ public class Player extends B2DSprite {
 	
 	/** AnimaÃ§Ã£o para o bomberman parado */
 	public void animacaoParado() {
+		
 		TextureRegion[] sprites;
 		if(ultimoEstado == GameKeys.UP)
 			sprites = TextureRegion.split(stopUp, 32, 32)[0];
@@ -121,11 +122,23 @@ public class Player extends B2DSprite {
 		setAnimation(sprites, 1 / 10f);
 	}
 	
+	
+	//animação morrendo - criei este estado fantasma para a funçao está parado não sobrescreva a animação
+	public void animacaoMorrendo() {
+		
+		TextureRegion[] sprites=TextureRegion.split(bomberdead, 32, 32)[0];
+		estado=-1;
+		setAnimation(sprites, 1/2f);
+	}
+	
+	
 	/** Verificando se estÃ¡ parado */
 	public boolean estaParado(){ return estado == 0;}
 	
 	/** Atualizando o estado (parado, andando cima, baixo, direita ou esquerda) */
 	private void atualizaEstado(){
+		
+
 		
 		/** Se estiver parado */
 		if(estado == 0) {

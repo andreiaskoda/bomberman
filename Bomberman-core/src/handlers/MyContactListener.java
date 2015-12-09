@@ -1,48 +1,120 @@
 package handlers;
 
+import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.utils.Array;
 
 public class MyContactListener implements ContactListener{
 
-	private boolean blockedUp=false;
-	private boolean blockedDown=false;
-	private boolean blockedLeft=false;
-	private boolean blockedRight=false;
-	private int ncu=0;
-	private int ncd=0;
-	private int ncr=0;
-	private int ncl=0;
+	private boolean gameOver = false;
+	private boolean e1dies = false;
+	private boolean e2dies = false;
+	private boolean e3dies = false;
+
+	private int ncu = 0;
+	private int ncd = 0;
+	private int ncr = 0;
+	private int ncl = 0;
+	private int nct = 0;
+	
+	private int e1u = 0;
+	private int e1d = 0;
+	private int e1r = 0;
+	private int e1l = 0;
+
+	private int e2u = 0;
+	private int e2d = 0;
+	private int e2r = 0;
+	private int e2l = 0;
+
+	private int e3u = 0;
+	private int e3d = 0;
+	private int e3r = 0;
+	private int e3l = 0;
+	
+	private Array<Body> bodiesToRemove;
+	
+	public MyContactListener() {
+		super();
+		bodiesToRemove = new Array<Body>();
+	}
 	
 	@Override
 	public void beginContact(Contact contact) {
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
+		Fixture faux;
 		
-		if(fa.getUserData()!=null&&fb.getUserData()!=null){
-			//System.out.println(fa.getUserData()+" <-fa , fb->"+fb.getUserData());
-			if (fa.getUserData()!=null&&fb.getUserData().equals("UP")){				
+		if(fa.getUserData() != null && fb.getUserData() != null){
+			
+			if( (fb.getUserData().equals("player") &&
+					(fa.getUserData().equals("CENTER_E1") 
+							|| fa.getUserData().equals("CENTER_E2")
+							|| fa.getUserData().equals("CENTER_E3")) )
+					|| (fa.getUserData().equals("player") && fb.getUserData().equals("CENTER_E1") 
+							|| fb.getUserData().equals("CENTER_E2")
+							|| fb.getUserData().equals("CENTER_E3")) )
+				this.gameOver = true;
+
+			if(fb.getUserData().equals("bombaAtiva")){
+				faux = fb;
+				fb = fa;
+				fa = faux;
+			}
+			
+			if(fa.getUserData().equals("player") &&
+					fb.getUserData().equals("bombaInativa")){
+				//System.out.println("contact");
+				nct++;
+			}
+			
+			if(fa.getUserData().equals("player") &&	fb.getUserData().equals("explosao")){
+				this.gameOver = true;
+			}
+			
+			if(fa.getUserData().equals("enemy1") &&	fb.getUserData().equals("explosao")) {
+				this.e1dies = true;
+				bodiesToRemove.add(fa.getBody());
+			}
+				
+			if(fa.getUserData().equals("enemy2") &&	fb.getUserData().equals("explosao")) {
+				this.e2dies = true;
+				bodiesToRemove.add(fa.getBody());
+			}
+				
+			if(fa.getUserData().equals("enemy3") &&	fb.getUserData().equals("explosao")) {
+				this.e3dies = true;
+				bodiesToRemove.add(fa.getBody());
+			}
+			
+			/** Verificando em volta do bomberman */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP")){				
 				ncu++;
 				//this.setBlockedUp(true);
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("DOWN")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN")){
 				//this.setBlockedDown(true);
 				ncd++;
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("LEFT")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT")){
 				//this.setBlockedLeft(true);
 				ncl++;
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("RIGHT")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT")){
 				//this.setBlockedRight(true);
 				ncr++;
 			}
+			
+			
+			
+			
 		}
 	}
 
@@ -52,26 +124,40 @@ public class MyContactListener implements ContactListener{
 		Fixture fa = contact.getFixtureA();
 		Fixture fb = contact.getFixtureB();
 		
-		if(fa.getUserData()!=null&&fb.getUserData()!=null){
+		if(fa.getUserData()!=null && fb.getUserData()!=null){
+
+			Fixture faux;
+			if(fb.getUserData().equals("bombaAtiva")){
+				faux=fb;
+				fb=fa;
+				fa=faux;
+			}
+			
+			if(fa.getUserData().equals("player") &&
+					fb.getUserData().equals("bombaInativa")){
+				//System.out.println("end contact");
+				nct--;
+			}
+
 			//System.out.println(fa.getUserData()+" <-fa , fb->"+fb.getUserData());
-			if (fa.getUserData()!=null&&fb.getUserData().equals("UP")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP")){
 				//this.setBlockedUp(false);
 				//System.out.println("up liberado");
 				ncu--;
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("DOWN")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN")){
 				//this.setBlockedDown(false);
 				ncd--;				
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("LEFT")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT")){
 				//this.setBlockedLeft(false);
 				//System.out.println("left liberado");
 				ncl--;				
 			}
 			
-			if (fa.getUserData()!=null&&fb.getUserData().equals("RIGHT")){
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT")){
 				//this.setBlockedRight(false);
 				//System.out.println("right liberado");
 				ncr--;
@@ -90,6 +176,13 @@ public class MyContactListener implements ContactListener{
 		// TODO Auto-generated method stub
 	}
 	
+	public boolean isOnTop(){
+		if(nct>0)
+			return true;
+		
+		return false;
+	}
+	
 	public boolean isBlockedUp() {
 		if(ncu>0)
 			return true;
@@ -97,7 +190,7 @@ public class MyContactListener implements ContactListener{
 			return false;
 	}
 
-	public void setBlockedUp(boolean blockedUp) { this.blockedUp = blockedUp; }
+	
 
 	public boolean isBlockedDown() {
 		if(ncd>0)
@@ -106,8 +199,6 @@ public class MyContactListener implements ContactListener{
 			return false;
 	}
 
-	public void setBlockedDown(boolean blockedDown) { this.blockedDown = blockedDown; }
-
 	public boolean isBlockedLeft() {
 		if(ncl>0)
 			return true;
@@ -115,9 +206,7 @@ public class MyContactListener implements ContactListener{
 			return false;
 	}
 
-	public void setBlockedLeft(boolean blockedLeft) {
-		this.blockedLeft = blockedLeft;
-	}
+	
 
 	public boolean isBlockedRight() {
 		if(ncr>0)
@@ -126,11 +215,27 @@ public class MyContactListener implements ContactListener{
 			return false;
 	}
 
-	public void setBlockedRight(boolean blockedRight) {
-		this.blockedRight = blockedRight;
-	}
-
+	public boolean isTheGameOver(){	return gameOver; }
 	
+	public boolean isEnemy1dead() { return e1dies; }
+	public boolean isEnemy2dead() { return e2dies; }
+	public boolean isEnemy3dead() { return e3dies; }
+	
+	public Array<Body> getBodiesToRemove() { return bodiesToRemove; }
+	
+	public void resetGameOver(){
+		this.gameOver = false;
+		this.e1dies = false;
+		this.e2dies = false;
+		this.e3dies = false;
+
+		 ncu=0;
+		 ncd=0;
+		 ncr=0;
+		 ncl=0;
+		 nct=0;
+		
+	}
 	
 	
 	
