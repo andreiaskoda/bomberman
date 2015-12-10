@@ -82,15 +82,17 @@ public class Play extends GameState{
 		createEnemy2();
 		createEnemy3();
 		
+		// Criando lista de bombas
+				bombs = new ArrayList<Bomb> ();
+
+		
 		// Criando a inteligência artificial que irá controlar os inimigos
 		glados = new GLaDOS(enemy1, enemy2, enemy3);
 		
 		// Criando tiles
 		createTiles();
 
-		// Criando lista de bombas
-		bombs = new ArrayList<Bomb> ();
-
+		
 		// Arrumando a camera
 		b2dCam = new OrthographicCamera();
 		b2dCam.setToOrtho(false , 480/PPM, 480/PPM);
@@ -149,7 +151,7 @@ public class Play extends GameState{
 		}
 		
 		handleInput();
-		glados.moveEnemy(player, cl);
+		glados.moveEnemy(player, cl, bombs);
 		
 		world.step(dt, 6, 2);
 		
@@ -193,8 +195,8 @@ public class Play extends GameState{
 		Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		// Desenha mapa
-		tmr.setView(cam);
-		tmr.render();
+		//tmr.setView(cam);
+		//tmr.render();
 		
 		// Renderiza todas as bombas
 		for(Bomb b:bombs)
@@ -218,6 +220,8 @@ public class Play extends GameState{
 			mBitmapFont.draw(sb, "Press ENTER to restart", 120, 100);
 			sb.end();
 		}
+		
+		//b2dr.render(world, cam.combined);
 		
 	}
 
@@ -316,7 +320,7 @@ public class Play extends GameState{
 		fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 		fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION
 				| B2DVars.BIT_PLAYER;
-		fdef.isSensor = true;
+		fdef.isSensor = false;
 		body.createFixture(fdef).setUserData("CENTER_E1");
 		
 		//criando sensor up
@@ -381,7 +385,7 @@ public class Play extends GameState{
 		fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 		fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION
 				| B2DVars.BIT_PLAYER;
-		fdef.isSensor = true;
+		fdef.isSensor = false;
 		body.createFixture(fdef).setUserData("CENTER_E2");
 		
 		//criando sensor up
@@ -446,7 +450,7 @@ public class Play extends GameState{
 	fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 	fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION
 			| B2DVars.BIT_PLAYER;
-	fdef.isSensor = true;
+	fdef.isSensor = false;
 	body.createFixture(fdef).setUserData("CENTER_E3");
 	
 	//criando sensor up
@@ -537,7 +541,7 @@ public class Play extends GameState{
 		world.destroyBody(this.enemy2.getBody());
 		world.destroyBody(this.enemy3.getBody());
 
-		//tirar as bombas buga a solidifica��o delas (descobrir o porque)
+		//tirar as bombas buga a solidificação delas (descobrir o porque)
 		
 //		for(int i =0;i<bombs.size();i++){
 //			Bomb b = bombs.get(i);

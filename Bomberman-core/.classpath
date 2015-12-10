@@ -4,5 +4,21 @@
 	<classpathentry kind="src" path="assets"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tudo"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-android.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-gwt.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-headless.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-jglfw.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-jglfw-natives.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-lwjgl.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-lwjgl-natives.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-backend-robovm.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-natives.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/gdx-setup.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/extensions/gdx-box2d/gdx-box2d.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/extensions/gdx-box2d/gdx-box2d-gwt.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/extensions/gdx-box2d/gdx-box2d-natives.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/extensions/gdx-freetype/gdx-freetype.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/askoda/eclipse/libgdx/extensions/gdx-freetype/gdx-freetype-natives.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

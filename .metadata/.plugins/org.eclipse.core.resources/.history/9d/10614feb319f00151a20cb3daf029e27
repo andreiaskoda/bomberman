@@ -1,0 +1,130 @@
+package com.bomber.entities;
+
+import handlers.GameKeys;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.bomber.Game;
+
+public class Enemy extends B2DSprite {
+	
+	private float x1;
+	private float y1;
+	private int state;
+	private int lastState;
+	private Texture up;
+	private Texture down;
+	private Texture left;
+	private Texture right;
+	
+	/** Movimento:
+	 * 1 = cima
+	 * 2 = direita
+	 * 3 = baixo
+	 * 4 = esquerda */
+	private int move;
+	
+	public final int UP = 1;
+	public final int RIGHT = 2;
+	public final int LEFT = 3;
+	public final int DOWN = 4;
+	
+	
+	public Enemy(Body body, Texture up, Texture down, Texture left, Texture right) {
+		super(body);
+		this.up = up;
+		this.down = down;
+		this.left = left;
+		this.right = right;
+		TextureRegion[] sprites = TextureRegion.split(down, 32, 32)[0];
+		setAnimation(sprites, 1 / 10f);
+		state = 0;
+		lastState = 0;
+		move = 1;
+	}
+
+	/** Atualizando o sistema - animação e estado do jogador */
+	public void update(float dt) {
+		animation.update(dt);
+		updateState();
+	}
+	
+	/** Movimentação do personagem para a direita */
+	public void moveRight() {
+		TextureRegion[] sprites = TextureRegion.split(right, 32, 32)[0];
+		setAnimation(sprites, 1 / 10f);
+		x1 = (int)this.getPosition().x+32;
+		y1 = (int)this.getPosition().y;
+		this.state = RIGHT;
+		this.lastState = RIGHT;
+	}
+	
+	/** Movimentação do personagem para a esquerda */
+	public void moveLeft() {
+		TextureRegion[] sprites = TextureRegion.split(left, 32, 32)[0];
+		setAnimation(sprites, 1 / 10f);
+		x1 = (int)this.getPosition().x-32;
+		y1 = (int)this.getPosition().y;
+		this.state = LEFT;
+		this.lastState = LEFT;
+	}
+	
+	/** Movimentação do personagem para cima */
+	public void moveUp() {
+		TextureRegion[] sprites = TextureRegion.split(up, 32, 32)[0];
+		setAnimation(sprites, 1 / 10f);
+		x1 = (int)this.getPosition().x;
+		y1 = (int)this.getPosition().y+32;
+		this.state = UP;
+		this.lastState = UP;
+	}
+
+	/** Movimentação do personagem para baixo */
+	public void moveDown() {
+		TextureRegion[] sprites = TextureRegion.split(down, 32, 32)[0];
+		setAnimation(sprites, 1 / 10f);
+		x1 = (int)this.getPosition().x;
+		y1 = (int)this.getPosition().y-32;
+		this.state = DOWN;
+		this.lastState = DOWN;
+	}	
+	
+	/** Verificando se está parado */
+	public boolean isStatic(){ return state == 0;}
+	
+	public int getLastState() { return lastState; }
+	
+	/** Atualizando o estado (parado, andando cima, baixo, direita ou esquerda) */
+	private void updateState(){	
+		/** Se estiver parado */
+		if(state == 0) return;
+		
+		/** Se estiver para andar para cima */
+		else if(state == UP){
+			if((int)this.getPosition().y<y1){
+				this.getBody().setLinearVelocity(0, 15000f);
+			} else this.state = 0;		
+			
+		/** Se estiver para andar para baixo */
+		} else if(state == DOWN){
+			if((int)this.getPosition().y>y1){
+				this.getBody().setLinearVelocity(0, -15000f);
+			} else this.state = 0;	
+			
+		/** Se estiver para andar para a esquerda */
+		} else if(state == LEFT){
+			if((int)this.getPosition().x>x1){
+				this.getBody().setLinearVelocity(-15000f, 0);
+			} else this.state = 0;	
+			
+		/** Se estiver para andar para a direita */
+		} else if(state == RIGHT){
+			if((int)this.getPosition().x<x1){
+				this.getBody().setLinearVelocity(15000f, 0);
+			} else this.state = 0;
+		}
+	}
+	
+}

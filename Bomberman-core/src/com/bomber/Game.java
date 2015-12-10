@@ -16,7 +16,7 @@ import handlers.GameStateManager;
 public class Game implements ApplicationListener {
 	
 	
-	public static final String TITLE = "Bomber-Cueio";
+	public static final String TITLE = "Bomberman";
 	public static final int WIDHT = 350;
 	public static final int  HEIGHT = 350;
 	public static final int  SCALE =2;
@@ -75,6 +75,7 @@ private void loadTextures() {
 	res.loadTexture("xpPontaDireita.png", "xpTipRight");
 	res.loadTexture("xpPontaEsquerda.png", "xpTipLeft");
 	res.loadTexture("gameover.png", "gameover");
+	res.loadTexture("explodindo.png", "bum");
 	
 	// Textures dos inimigos
 	res.loadTexture("inimigo1baixo.png", "e1down");

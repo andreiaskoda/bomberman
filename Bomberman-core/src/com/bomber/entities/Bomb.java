@@ -40,6 +40,7 @@ public class Bomb extends B2DSprite {
 	private Texture xpTipDown;
 	private Texture xpTipLeft;
 	private Texture xpTipRight;
+	private Texture bum;
 	
 	/** ESTADOS (definir melhores tempos)
 	 * 0 - normal
@@ -62,6 +63,7 @@ public class Bomb extends B2DSprite {
 		xpTipDown = Game.res.getTexture("xpTipDown");
 		xpTipRight = Game.res.getTexture("xpTipRight");
 		xpTipLeft = Game.res.getTexture("xpTipLeft");
+		bum = Game.res.getTexture("bum");
 		this.cl=cl;
 	}
 	
@@ -129,8 +131,8 @@ public class Bomb extends B2DSprite {
 			sb.draw(tex,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 		}
 		else if (state == 1) {
-			Texture tex = Game.res.getTexture("bombaExp");
-			TextureRegion[] sprites = TextureRegion.split(tex, 32, 32)[0];
+			Texture tex = Game.res.getTexture("bum");
+			sb.draw(tex,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 		} else {
 			sb.draw(xpCenter,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 			Texture tex = Game.res.getTexture("red");

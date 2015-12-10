@@ -52,13 +52,13 @@ public class MyContactListener implements ContactListener{
 		if(fa.getUserData() != null && fb.getUserData() != null){
 			
 			if( (fb.getUserData().equals("player") &&
-					(fa.getUserData().equals("CENTER_E1") 
+							(fa.getUserData().equals("CENTER_E1") 
 							|| fa.getUserData().equals("CENTER_E2")
 							|| fa.getUserData().equals("CENTER_E3")) )
 					|| (fa.getUserData().equals("player") && fb.getUserData().equals("CENTER_E1") 
 							|| fb.getUserData().equals("CENTER_E2")
 							|| fb.getUserData().equals("CENTER_E3")) )
-				this.gameOver = true;
+				this.gameOver = true; 
 
 			if(fb.getUserData().equals("activeBomb")){
 				faux = fb;
@@ -330,29 +330,37 @@ public class MyContactListener implements ContactListener{
 	
 	/** Funções para verificar se o inimigo 3 pode andar */
 	public boolean enemy3blockedUp() {
-		if(e3u>0)
+		if(e3u>0) {
+			System.out.println("Bloqueado cima");
 			return true;
+		}
 		else
 			return false;
 	}
 
 	public boolean enemy3blockedDown() {
-		if(e3d>0)
+		if(e3d>0) {
+			System.out.println("Bloqueado baixo");
 			return true;
+		}
 		else
 			return false;
 	}
 
 	public boolean enemy3blockedLeft() {
-		if(e3l>0)
+		if(e3l>0){
+			System.out.println("Bloqueado esquerda");
 			return true;
+	}
 		else
 			return false;
 	}
 
 	public boolean enemy3blockedRight() {
-		if(e3r>0)
+		if(e3r>0) {
+			System.out.println("Bloqueado direita");
 			return true;
+	}
 		else
 			return false;
 	}

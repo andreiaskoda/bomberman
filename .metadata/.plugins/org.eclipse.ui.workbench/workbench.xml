@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="16" version="2.0">
+<workbench progressCount="11" version="2.0">
 <workbenchAdvisor/>
-<window height="549" maximized="true" width="1020" x="0" y="26">
+<window height="550" maximized="true" width="1016" x="-25" y="26">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -18,6 +18,8 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditorNoSource" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -33,29 +35,34 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/Game.java" title="Game.java" tooltip="Bomberman-core/src/com/bomber/Game.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/Game.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2191" selectionTopPixel="719"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Play.java" partName="Play.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/states/Play.java" title="Play.java" tooltip="Bomberman-core/src/com/bomber/states/Play.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/states/Play.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5577" selectionTopPixel="5368"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="B2DSprite.java" partName="B2DSprite.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/B2DSprite.java" title="B2DSprite.java" tooltip="Bomberman-core/src/com/bomber/entities/B2DSprite.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/entities/B2DSprite.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="562" selectionTopPixel="188"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Enemy.java" partName="Enemy.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/Enemy.java" title="Enemy.java" tooltip="Bomberman-core/src/com/bomber/entities/Enemy.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/entities/Enemy.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="2399" selectionTopPixel="1375"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GLaDOS.java" partName="GLaDOS.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/GLaDOS.java" title="GLaDOS.java" tooltip="Bomberman-core/src/com/bomber/entities/GLaDOS.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/entities/GLaDOS.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1965" selectionTopPixel="361"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/Player.java" title="Player.java" tooltip="Bomberman-core/src/com/bomber/entities/Player.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/entities/Player.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1071" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2015"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Play.java" partName="Play.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/states/Play.java" title="Play.java" tooltip="Bomberman-core/src/com/bomber/states/Play.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/states/Play.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4380" selectionTopPixel="2499"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameInputProcessor.java" partName="GameInputProcessor.java" path="/home/askoda/workspace/Bomberman-core/src/handlers/GameInputProcessor.java" title="GameInputProcessor.java" tooltip="Bomberman-core/src/handlers/GameInputProcessor.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/handlers/GameInputProcessor.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bomb.java" partName="Bomb.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/Bomb.java" title="Bomb.java" tooltip="Bomberman-core/src/com/bomber/entities/Bomb.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bomb.java" partName="Bomb.java" path="/home/askoda/workspace/Bomberman-core/src/com/bomber/entities/Bomb.java" title="Bomb.java" tooltip="Bomberman-core/src/com/bomber/entities/Bomb.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Bomberman-core/src/com/bomber/entities/Bomb.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3905" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4064" selectionTopPixel="564"/>
 </editor>
 </editors>
 <views>
@@ -114,7 +121,7 @@
 <fastViewBar fastViewLocation="1024" id="bottomRight" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.TaskList" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.81560284"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.5437352"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -139,8 +146,8 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25940594" ratioLeft="262" ratioRight="748" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.2476415" ratioLeft="105" ratioRight="319" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<info folder="true" part="bottomRight" ratio="0.7004717" ratioLeft="297" ratioRight="127" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.team.ui.GenericHistoryView" label="LabelNotFound"/>
@@ -161,170 +168,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/Game.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/B2DSprite.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/Player.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/GLaDOS.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/states/Play.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/Bomb.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/Bombermanclass.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameKeys.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameInputProcessor.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameStateManager.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/MyContactListener.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/Enemy.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameKeys.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameStateManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/GameInputProcessor.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/Content.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/B2DVars.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/handlers/Animation.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/states/GameState.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/Bombermanclass.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/Game.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Bomberman-core/src/com/bomber/entities/Bomb.java"/>
 </editors>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="559" y="0"/>
 </item>
-<item historyLabel="Game.java" index="0">
-<position info="not_deleted" x="2144" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="6097" y="0"/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="1189" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="559" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="10892" y="0"/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2693" y="0"/>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="4223" y="0"/>
 </item>
-<item historyLabel="Game.java" index="0">
-<position info="not_deleted" x="2191" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="2008" y="0"/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2596" y="0"/>
+<item historyLabel="Enemy.java" index="3">
+<position info="not_deleted" x="2276" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="1697" y="0"/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2596" y="0"/>
+<item historyLabel="Enemy.java" index="3">
+<position info="not_deleted" x="2276" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="1697" y="0"/>
 </item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="828" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="559" y="0"/>
 </item>
-<item historyLabel="B2DSprite.java" index="1">
-<position info="not_deleted" x="562" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="8469" y="0"/>
 </item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="828" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="6880" y="0"/>
 </item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1097" y="0"/>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="2601" y="0"/>
 </item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="315" y="0"/>
-</item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2596" y="0"/>
-</item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="315" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="5923" y="0"/>
-</item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="2937" y="0"/>
-</item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2596" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="Bombermanclass.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="GameKeys.java" index="6">
-<position info="not_deleted" x="943" y="0"/>
-</item>
-<item historyLabel="GameInputProcessor.java" index="7">
-<position info="not_deleted" x="1436" y="0"/>
-</item>
-<item historyLabel="GameKeys.java" index="6">
-<position info="not_deleted" x="670" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="GameStateManager.java" index="8">
-<position info="not_deleted" x="175" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="MyContactListener.java" index="9">
-<position info="not_deleted" x="3146" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="Content.java" index="10">
-<position info="not_deleted" x="592" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="B2DVars.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="Animation.java" index="12">
-<position info="not_deleted" x="970" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="GameState.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Player.java" index="2">
-<position info="not_deleted" x="1071" y="0"/>
-</item>
-<item historyLabel="Play.java" index="3">
+<item historyLabel="GLaDOS.java" index="0">
 <position/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="4160" y="0"/>
+<item historyLabel="Enemy.java" index="3">
+<position info="not_deleted" x="2455" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
+<item historyLabel="GLaDOS.java" index="0">
 <position/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="4058" y="0"/>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="4995" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
+<item historyLabel="Enemy.java" index="3">
+<position info="not_deleted" x="2399" y="10"/>
+</item>
+<item historyLabel="GLaDOS.java" index="0">
 <position/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="4058" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="8469" y="0"/>
 </item>
-<item historyLabel="Play.java" index="3">
-<position info="not_deleted" x="4380" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="28" y="0"/>
 </item>
-<item historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2813" y="0"/>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="8469" y="0"/>
 </item>
-<item historyLabel="Game.java" index="0">
-<position info="not_deleted" x="2191" y="0"/>
+<item historyLabel="Enemy.java" index="3">
+<position info="not_deleted" x="2399" y="10"/>
 </item>
-<item active="true" historyLabel="Bomb.java" index="4">
-<position info="not_deleted" x="2813" y="0"/>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="28" y="0"/>
+</item>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="10564" y="0"/>
+</item>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="1720" y="0"/>
+</item>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="10564" y="0"/>
+</item>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="1720" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="16309" y="0"/>
+</item>
+<item historyLabel="MyContactListener.java" index="2">
+<position info="not_deleted" x="1720" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="15785" y="0"/>
+</item>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="1965" y="0"/>
+</item>
+<item historyLabel="GameKeys.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GameStateManager.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="1965" y="0"/>
+</item>
+<item historyLabel="GameInputProcessor.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="1818" y="0"/>
+</item>
+<item historyLabel="Content.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="1818" y="0"/>
+</item>
+<item historyLabel="Bombermanclass.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="1818" y="0"/>
+</item>
+<item historyLabel="Game.java" index="9">
+<position info="not_deleted" x="522" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="5577" y="0"/>
+</item>
+<item historyLabel="Game.java" index="9">
+<position info="not_deleted" x="522" y="0"/>
+</item>
+<item historyLabel="Game.java" index="9">
+<position info="not_deleted" x="2505" y="0"/>
+</item>
+<item historyLabel="Game.java" index="9">
+<position info="not_deleted" x="2507" y="0"/>
+</item>
+<item historyLabel="Play.java" index="1">
+<position info="not_deleted" x="5577" y="0"/>
+</item>
+<item historyLabel="Bomb.java" index="10">
+<position info="not_deleted" x="4064" y="0"/>
+</item>
+<item active="true" historyLabel="GLaDOS.java" index="0">
+<position info="not_deleted" x="1965" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -332,6 +336,12 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -344,47 +354,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameState.java" tooltip="Bomberman-core/src/com/bomber/states/GameState.java">
-<persistable path="/Bomberman-core/src/com/bomber/states/GameState.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bomb.java" tooltip="Bomberman-core/src/com/bomber/entities/Bomb.java">
+<persistable path="/Bomberman-core/src/com/bomber/entities/Bomb.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Animation.java" tooltip="Bomberman-core/src/handlers/Animation.java">
-<persistable path="/Bomberman-core/src/handlers/Animation.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="B2DVars.java" tooltip="Bomberman-core/src/handlers/B2DVars.java">
-<persistable path="/Bomberman-core/src/handlers/B2DVars.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyContactListener.java" tooltip="Bomberman-core/src/handlers/MyContactListener.java">
-<persistable path="/Bomberman-core/src/handlers/MyContactListener.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameStateManager.java" tooltip="Bomberman-core/src/handlers/GameStateManager.java">
-<persistable path="/Bomberman-core/src/handlers/GameStateManager.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameInputProcessor.java" tooltip="Bomberman-core/src/handlers/GameInputProcessor.java">
-<persistable path="/Bomberman-core/src/handlers/GameInputProcessor.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameKeys.java" tooltip="Bomberman-core/src/handlers/GameKeys.java">
-<persistable path="/Bomberman-core/src/handlers/GameKeys.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" tooltip="Bomberman-core/src/com/bomber/Game.java">
+<persistable path="/Bomberman-core/src/com/bomber/Game.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bombermanclass.java" tooltip="Bomberman-core/src/com/bomber/Bombermanclass.java">
 <persistable path="/Bomberman-core/src/com/bomber/Bombermanclass.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Bomb.java" tooltip="Bomberman-core/src/com/bomber/entities/Bomb.java">
-<persistable path="/Bomberman-core/src/com/bomber/entities/Bomb.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Play.java" tooltip="Bomberman-core/src/com/bomber/states/Play.java">
-<persistable path="/Bomberman-core/src/com/bomber/states/Play.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Content.java" tooltip="Bomberman-core/src/handlers/Content.java">
 <persistable path="/Bomberman-core/src/handlers/Content.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameInputProcessor.java" tooltip="Bomberman-core/src/handlers/GameInputProcessor.java">
+<persistable path="/Bomberman-core/src/handlers/GameInputProcessor.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameStateManager.java" tooltip="Bomberman-core/src/handlers/GameStateManager.java">
+<persistable path="/Bomberman-core/src/handlers/GameStateManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GameKeys.java" tooltip="Bomberman-core/src/handlers/GameKeys.java">
+<persistable path="/Bomberman-core/src/handlers/GameKeys.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="PriorityQueue.class" tooltip="java.util.PriorityQueue">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Bomberman-core/\/usr\/lib\/jvm\/java-7-openjdk-amd64\/jre\/lib\/rt.jar&lt;java.util(PriorityQueue.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MyContactListener.java" tooltip="Bomberman-core/src/handlers/MyContactListener.java">
+<persistable path="/Bomberman-core/src/handlers/MyContactListener.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="B2DVars.java" tooltip="Bomberman-core/src/handlers/B2DVars.java">
+<persistable path="/Bomberman-core/src/handlers/B2DVars.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" tooltip="Bomberman-core/src/com/bomber/entities/Player.java">
 <persistable path="/Bomberman-core/src/com/bomber/entities/Player.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="B2DSprite.java" tooltip="Bomberman-core/src/com/bomber/entities/B2DSprite.java">
-<persistable path="/Bomberman-core/src/com/bomber/entities/B2DSprite.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GLaDOS.java" tooltip="Bomberman-core/src/com/bomber/entities/GLaDOS.java">
+<persistable path="/Bomberman-core/src/com/bomber/entities/GLaDOS.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" tooltip="Bomberman-core/src/com/bomber/Game.java">
-<persistable path="/Bomberman-core/src/com/bomber/Game.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Enemy.java" tooltip="Bomberman-core/src/com/bomber/entities/Enemy.java">
+<persistable path="/Bomberman-core/src/com/bomber/entities/Enemy.java"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="bomb-master.zip" tooltip="/home/askoda/workspace/bomb-master.zip">
+<persistable uri="file:/home/askoda/workspace/bomb-master.zip"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Enemy.class" tooltip="/home/askoda/workspace/Bomberman-core/bin/com/bomber/entities/Enemy.class">
+<persistable uri="file:/home/askoda/workspace/Bomberman-core/bin/com/bomber/entities/Enemy.class"/>
 </file>
 </mruList>
 </workbench>

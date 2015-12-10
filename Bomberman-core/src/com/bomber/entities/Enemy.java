@@ -92,7 +92,9 @@ public class Enemy extends B2DSprite {
 	}	
 	
 	/** Verificando se está parado */
-	public boolean isStatic(){ return state == 0;}
+	public boolean isStatic(){ return state == 0; } 
+	
+	public int getLastState() { return lastState; }
 	
 	/** Atualizando o estado (parado, andando cima, baixo, direita ou esquerda) */
 	private void updateState(){	
