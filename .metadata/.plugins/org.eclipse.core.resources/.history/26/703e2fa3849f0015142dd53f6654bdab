@@ -92,7 +92,7 @@ public class Bomb extends B2DSprite {
 				fdef.shape = shape;
 				fdef.filter.categoryBits = B2DVars.BIT_BOMB;
 				fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_PLAYER |
-				B2DVars.BIT_ENEMY;
+						B2DVars.BIT_ENEMY;
 				fdef.isSensor = false;
 				body.setSleepingAllowed(false);
 				body.createFixture(fdef);

@@ -81,18 +81,18 @@ public class Bomb extends B2DSprite {
 		//obs tive varios problemas para fazer esta parte, a solução que encontrei para desbugar o contato foi recriar uma fixture
 		if(this.playerTop==true){
 			
-			//se o player não está mais em cima desta bomba
+			//se o player n�o est� mais em cima desta bomba
 			if(!cl.isOnTop()){
 				//destroi a fixture antiga
 				this.getBody().destroyFixture(this.getBody().getFixtureList().first());
-				//mesmas caracteristicas porem não é mais um sensor
+				//mesmas caracteristicas porem n�o � mais um sensor
 				PolygonShape shape = new PolygonShape();
 				FixtureDef fdef = new FixtureDef();
 				shape.setAsBox(15/PPM, 15/PPM);
 				fdef.shape = shape;
 				fdef.filter.categoryBits = B2DVars.BIT_BOMB;
 				fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_PLAYER |
-				B2DVars.BIT_ENEMY;
+						B2DVars.BIT_ENEMY;
 				fdef.isSensor = false;
 				body.setSleepingAllowed(false);
 				body.createFixture(fdef);

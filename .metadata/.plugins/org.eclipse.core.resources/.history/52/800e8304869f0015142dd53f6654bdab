@@ -2,10 +2,6 @@ package com.bomber.entities;
 
 import java.util.ArrayList;
 
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
-import com.badlogic.gdx.utils.Array;
-import com.bomber.*;
 import handlers.*;
 
 public class GLaDOS {
@@ -41,7 +37,7 @@ public class GLaDOS {
 	
 	public void moveEnemy(Player player, MyContactListener cl, ArrayList<Bomb> bombs) {
 		this.bombs = bombs;
-		//positionBombs();
+		positionBombs();
 		x_player = (int) player.getPosition().x/32 - 1;
 		y_player = (int) player.getPosition().y/32 - 1;
 		this.cl = cl;
@@ -224,7 +220,7 @@ public class GLaDOS {
 		if(risk[x_enemy][y_enemy] == BOMB || risk[x_enemy][y_enemy] == EXPLOSION) {
 			direction = this.ifRisk(enemy1);
 		} 
-		/** Se ele não estiver em uma zona de risco */
+		//Se ele não estiver em uma zona de risco 
 		else {
 			// Olhando em volta
 			if(y_enemy > 0 && position[x_enemy][y_enemy-1] < place
@@ -254,7 +250,8 @@ public class GLaDOS {
 		}
 		
 		/** Movimento do inimigo */
-		if(position[(int)enemy1.getPosition().x/32-1][(int)enemy1.getPosition().y/32-1] == 1) 
+		
+		if(position[(int)enemy1.getPosition().x][(int)enemy1.getPosition().x] == 1)
 			direction = 0;
 		if(direction == enemy1.UP && enemy1.isStatic())
 			enemy1.moveUp();
@@ -267,8 +264,101 @@ public class GLaDOS {
 		
 		else if(direction == enemy1.DOWN && enemy1.isStatic())
 			enemy1.moveDown();
+	}	
+
+	private void moveEnemy2() {
+		// Pegando a posição do inimigo
+		int x_enemy = (int) enemy2.getPosition().x/32 - 1;
+		int y_enemy = (int) enemy2.getPosition().y/32 - 1;
+		int direction = 0, place = 100;
+		
+		
+		// Olhando em volta
+		if(x_enemy < 13 && position[x_enemy+1][y_enemy] < place
+				&& position[x_enemy+1][y_enemy] >0) {
+			// Para baixo da matriz
+			place = position[x_enemy+1][y_enemy];
+			direction = enemy2.RIGHT;
+		}
+		if(y_enemy < 13 && position[x_enemy][y_enemy+1] < place
+				&& position[x_enemy][y_enemy+1] > 0) {
+			// A direita da matriz
+			place = position[x_enemy][y_enemy+1];
+			direction = enemy2.UP;
+		}
+		if(y_enemy > 0 && position[x_enemy][y_enemy-1] < place
+				&& position[x_enemy][y_enemy-1] > 0) {
+			// A esquerda da matriz
+			place = position[x_enemy][y_enemy-1];
+			direction = enemy2.DOWN;
+		}
+		if(x_enemy > 0 && position[x_enemy-1][y_enemy] < place
+				&& position[x_enemy-1][y_enemy] > 0) {
+			// Para cima da matriz
+			place = position[x_enemy-1][y_enemy];
+			direction = enemy2.LEFT;
+		}
+		
+		/** Movimento do inimigo */
+		if(direction == enemy2.UP && enemy2.isStatic())
+			enemy2.moveUp();
+		
+		else if(direction == enemy2.LEFT && enemy2.isStatic())
+			enemy2.moveLeft();
+		
+		else if(direction == enemy2.RIGHT && enemy2.isStatic())
+			enemy2.moveRight();
+		
+		else if(direction == enemy2.DOWN && enemy2.isStatic())
+			enemy2.moveDown();
 	}
 	
+	private void moveEnemy3() {
+		// Pegando a posição do inimigo
+		int x_enemy = (int) enemy3.getPosition().x/32 - 1;
+		int y_enemy = (int) enemy3.getPosition().y/32 - 1;
+		int direction = 0, place = 100;
+		
+		
+		// Olhando em volta
+		if(x_enemy > 0 && position[x_enemy-1][y_enemy] < place
+				&& position[x_enemy-1][y_enemy] > 0) {
+			// Para cima da matriz
+			place = position[x_enemy-1][y_enemy];
+			direction = enemy3.LEFT;
+		}
+		if(x_enemy < 13 && position[x_enemy+1][y_enemy] < place
+				&& position[x_enemy+1][y_enemy] >0) {
+			// Para baixo da matriz
+			place = position[x_enemy+1][y_enemy];
+			direction = enemy3.RIGHT;
+		}
+		if(y_enemy < 13 && position[x_enemy][y_enemy+1] < place
+				&& position[x_enemy][y_enemy+1] > 0) {
+			// A direita da matriz
+			place = position[x_enemy][y_enemy+1];
+			direction = enemy3.UP;
+		}
+		if(y_enemy > 0 && position[x_enemy][y_enemy-1] < place
+				&& position[x_enemy][y_enemy-1] > 0) {
+			// A esquerda da matriz
+			place = position[x_enemy][y_enemy-1];
+			direction = enemy3.DOWN;
+		}
+		
+		/** Movimento do inimigo */
+		if(direction == enemy3.UP && enemy3.isStatic())
+			enemy3.moveUp();
+		
+		else if(direction == enemy3.LEFT && enemy3.isStatic())
+			enemy3.moveLeft();
+		
+		else if(direction == enemy3.RIGHT && enemy3.isStatic())
+			enemy3.moveRight();
+		
+		else if(direction == enemy3.DOWN && enemy3.isStatic())
+			enemy3.moveDown();
+	}
 	
 	private int ifRisk(Enemy e) {
 		int direction, x_enemy, y_enemy, distance = position[x_player][y_player];
@@ -299,128 +389,6 @@ public class GLaDOS {
 		
 		return direction;
 	}
-	
-
-	private void moveEnemy2() {
-		// Pegando a posição do inimigo
-		int x_enemy = (int) enemy2.getPosition().x/32 - 1;
-		int y_enemy = (int) enemy2.getPosition().y/32 - 1;
-		int direction = 0, place = 100;
-		
-		/** Vendo se ele está em uma zona de risco */
-		if(risk[x_enemy][y_enemy] == BOMB || risk[x_enemy][y_enemy] == EXPLOSION) {
-			direction = this.ifRisk(enemy2);
-		} 
-		/** Se ele não estiver em uma zona de risco */
-		else {
-			// Olhando em volta
-			if(x_enemy < 13 && position[x_enemy+1][y_enemy] < place
-					&& position[x_enemy+1][y_enemy] >0) {
-				// Para baixo da matriz
-				place = position[x_enemy+1][y_enemy];
-				direction = enemy2.RIGHT;
-			}
-			if(y_enemy < 13 && position[x_enemy][y_enemy+1] < place
-					&& position[x_enemy][y_enemy+1] > 0) {
-				// A direita da matriz
-				place = position[x_enemy][y_enemy+1];
-				direction = enemy2.UP;
-			}
-			if(y_enemy > 0 && position[x_enemy][y_enemy-1] < place
-					&& position[x_enemy][y_enemy-1] > 0) {
-				// A esquerda da matriz
-				place = position[x_enemy][y_enemy-1];
-				direction = enemy2.DOWN;
-			}
-			if(x_enemy > 0 && position[x_enemy-1][y_enemy] < place
-					&& position[x_enemy-1][y_enemy] > 0) {
-				// Para cima da matriz
-				place = position[x_enemy-1][y_enemy];
-				direction = enemy2.LEFT;
-			}
-		}
-		/** Movimento do inimigo */
-		if(position[(int)enemy2.getPosition().x/32-1][(int)enemy2.getPosition().y/32-1] == 1) 
-			direction = 0;
-		
-		if(direction == enemy2.UP && enemy2.isStatic())
-			enemy2.moveUp();
-		
-		else if(direction == enemy2.LEFT && enemy2.isStatic())
-			enemy2.moveLeft();
-		
-		else if(direction == enemy2.RIGHT && enemy2.isStatic())
-			enemy2.moveRight();
-		
-		else if(direction == enemy2.DOWN && enemy2.isStatic())
-			enemy2.moveDown();
-	}
-	
-	
-	private void moveEnemy3() {
-		// Pegando a posição do inimigo
-		int x_enemy = (int) enemy3.getPosition().x/32 - 1;
-		int y_enemy = (int) enemy3.getPosition().y/32 - 1;
-		int direction = 0, place = 100;
-		
-		/** Vendo se ele está em uma zona de risco */
-		if(risk[x_enemy][y_enemy] == BOMB || risk[x_enemy][y_enemy] == EXPLOSION) {
-			direction = this.ifRisk(enemy3);
-		} 
-		/** Se ele não estiver em uma zona de risco */
-		else {
-			// Olhando em volta
-			if(x_enemy > 0 && position[x_enemy-1][y_enemy] < place
-					&& position[x_enemy-1][y_enemy] > 0) {
-				// Para cima da matriz
-				place = position[x_enemy-1][y_enemy];
-				direction = enemy3.LEFT;
-			}
-			if(x_enemy < 13 && position[x_enemy+1][y_enemy] < place
-					&& position[x_enemy+1][y_enemy] >0) {
-				// Para baixo da matriz
-				place = position[x_enemy+1][y_enemy];
-				direction = enemy3.RIGHT;
-			}
-			if(y_enemy < 13 && position[x_enemy][y_enemy+1] < place
-					&& position[x_enemy][y_enemy+1] > 0) {
-				// A direita da matriz
-				place = position[x_enemy][y_enemy+1];
-				direction = enemy3.UP;
-			}
-			if(y_enemy > 0 && position[x_enemy][y_enemy-1] < place
-					&& position[x_enemy][y_enemy-1] > 0) {
-				// A esquerda da matriz
-				place = position[x_enemy][y_enemy-1];
-				direction = enemy3.DOWN;
-			}
-		}
-		
-		/** Movimento do inimigo */
-		if(position[(int)enemy3.getPosition().x/32-1][(int)enemy3.getPosition().y/32-1] == 1) 
-			direction = 0;
-		
-		if(direction == enemy3.UP && enemy3.isStatic())
-			enemy3.moveUp();
-		
-		else if(direction == enemy3.LEFT && enemy3.isStatic())
-			enemy3.moveLeft();
-		
-		else if(direction == enemy3.RIGHT && enemy3.isStatic())
-			enemy3.moveRight();
-		
-		else if(direction == enemy3.DOWN && enemy3.isStatic())
-			enemy3.moveDown();
-	}
-	
-	
-	public static void swapRows(int[][] m) {
-        for (int  i = 0, k = m.length - 1; i < k; ++i, --k) {
-            int[] x = m[i];
-            m[i] = m[k];
-            m[k] = x;
-        }
-    }
 	
 	public int getNumVivos() { return nAlive; }
 	public void setNumVivos() { this.nAlive = 1; }
