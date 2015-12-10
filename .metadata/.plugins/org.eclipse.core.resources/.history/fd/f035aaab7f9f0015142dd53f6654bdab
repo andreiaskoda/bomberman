@@ -83,7 +83,7 @@ public class Play extends GameState{
 		createEnemy3();
 		
 		// Criando lista de bombas
-		bombs = new ArrayList<Bomb> ();
+				bombs = new ArrayList<Bomb> ();
 
 		
 		// Criando a inteligência artificial que irá controlar os inimigos
@@ -216,9 +216,14 @@ public class Play extends GameState{
 			player.render(sb);	
 			sb.begin();
 			Texture tex = Game.res.getTexture("gameover");
-			sb.draw(tex,120,150,240,180);
+			sb.draw(tex, 120,150,240, 180);
 			mBitmapFont.draw(sb, "Press ENTER to restart", 120, 100);
 			sb.end();
+		}
+		
+		if(glados.getNumVivos() == 0) {
+			
+			
 		}
 		
 		b2dr.render(world, cam.combined);
@@ -540,8 +545,7 @@ public class Play extends GameState{
 		world.destroyBody(this.enemy1.getBody());
 		world.destroyBody(this.enemy2.getBody());
 		world.destroyBody(this.enemy3.getBody());
-		
-		
+
 		//tirar as bombas buga a solidificação delas (descobrir o porque)
 		
 //		for(int i =0;i<bombs.size();i++){
@@ -559,15 +563,13 @@ public class Play extends GameState{
 		
 		//tirar o game over do cl
 		cl.resetGameOver();
-
+		
 		
 		//recriar tudo
 		createPlayer();
 		createEnemy1();
 		createEnemy2();
 		createEnemy3();
-		
-		glados = new GLaDOS(enemy1, enemy2, enemy3);
 		
 	}
 	

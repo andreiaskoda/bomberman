@@ -11,6 +11,16 @@ import com.badlogic.gdx.utils.Array;
 import com.bomber.*;
 import handlers.*;
 
+/** INFORMAÇÕES SOBRE A INTELIGÊNCIA ARTIFICIAL
+ * 1) Verificar quantos inimigos existem vivos
+ * a) Caso tenham três vivos:
+ *  
+ * 
+ * 
+ * 2) Verificar posição do bomberman
+ * 3) Verificar posição de bombas no campo
+ *  */
+
 public class GLaDOS {
 	
 	private final int WALL = -2;
@@ -400,7 +410,6 @@ public class GLaDOS {
     }
 	
 	public int getNumVivos() { return nAlive; }
-	public void setNumVivos() { this.nAlive = 1; }
 	public void died() { nAlive--; }
 	
 }

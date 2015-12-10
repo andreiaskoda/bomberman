@@ -221,6 +221,14 @@ public class Play extends GameState{
 			sb.end();
 		}
 		
+		if(glados.getNumVivos() == 0) {
+			sb.begin();
+			Texture tex = Game.res.getTexture("winner");
+			sb.draw(tex, 120,150,240,180);
+			mBitmapFont.draw(sb, "Parabéns!", 120, 100);
+			sb.end();
+		}
+		
 		b2dr.render(world, cam.combined);
 		
 	}

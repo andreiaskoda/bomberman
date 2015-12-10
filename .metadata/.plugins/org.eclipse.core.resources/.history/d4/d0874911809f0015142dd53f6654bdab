@@ -400,7 +400,6 @@ public class GLaDOS {
     }
 	
 	public int getNumVivos() { return nAlive; }
-	public void setNumVivos() { this.nAlive = 1; }
 	public void died() { nAlive--; }
 	
 }

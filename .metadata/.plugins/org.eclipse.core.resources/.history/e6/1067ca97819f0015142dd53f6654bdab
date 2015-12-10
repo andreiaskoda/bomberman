@@ -2,8 +2,6 @@ package com.bomber;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.backends.lwjgl.audio.Mp3.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -51,10 +49,8 @@ public void create (){
 	hudCam = new OrthographicCamera();
 	hudCam.setToOrtho(false,480,480);
 	gsm = new GameStateManager(this);
-
-	Sound sound = Gdx.audio.newSound(Gdx.files.internal("bgm.mp3"));
-	sound.play();
 	
+	//res.loadMusic
 	
 }
 

@@ -11,6 +11,16 @@ import com.badlogic.gdx.utils.Array;
 import com.bomber.*;
 import handlers.*;
 
+/** INFORMAÇÕES SOBRE A INTELIGÊNCIA ARTIFICIAL
+ * 1) Verificar quantos inimigos existem vivos
+ * a) Caso tenham três vivos:
+ *  
+ * 
+ * 
+ * 2) Verificar posição do bomberman
+ * 3) Verificar posição de bombas no campo
+ *  */
+
 public class GLaDOS {
 	
 	private final int WALL = -2;
@@ -40,7 +50,27 @@ public class GLaDOS {
 		this.enemy3 = e3;
 		position = new int[14][14];
 		risk = new int[14][14];
-	}	
+	}
+	
+	
+	private void printMatrix(int y, int x) {
+		System.out.println(" ");
+		for(int i = 0; i < 13; i++){
+			for(int j = 0; j < 13; j++) {
+				if(position[i][j] == -2)
+					System.out.print("p   ");
+				else if(position[i][j] == PLAYER)
+					System.out.print("P ");
+				else if(i == x && j == y)
+					System.out.print("B ");
+				else
+					System.out.print(position[j][i] + "   ");
+			}
+			System.out.println(" ");
+		}
+			
+	}
+	
 	
 	public void moveEnemy(Player player, MyContactListener cl, ArrayList<Bomb> bombs) {
 		this.bombs = bombs;
@@ -50,7 +80,7 @@ public class GLaDOS {
 		this.cl = cl;
 		
 		createMatrix();
-		//printMatrix(0,0);
+		printMatrix(0,0);
 		// Verificar quantos inimigos estão vivos
 		if(nAlive == 3) {
 			this.moveEnemy3();
@@ -74,25 +104,7 @@ public class GLaDOS {
 				this.moveEnemy1();
 		} 
 		
-	}
-	
-	private void printMatrix(int y, int x) {
-		System.out.println(" ");
-		for(int i = 0; i < 13; i++){
-			for(int j = 0; j < 13; j++) {
-				if(position[i][j] == -2)
-					System.out.print("p   ");
-				else if(position[i][j] == PLAYER)
-					System.out.print("P ");
-				else if(i == x && j == y)
-					System.out.print("B ");
-				else
-					System.out.print(position[j][i] + "   ");
-			}
-			System.out.println(" ");
-		}
-			
-	}
+	}	
 	
 	/** Retorna uma matriz com 0 aonde não existe risco, -1 aonde existe
 	 * e -2 onde existe parede */
@@ -333,13 +345,13 @@ public class GLaDOS {
 		if(direction == enemy2.UP && enemy2.isStatic())
 			enemy2.moveUp();
 		
-		else if(direction == enemy2.LEFT && enemy2.isStatic())
+		else if(direction == enemy1.LEFT && enemy1.isStatic())
 			enemy2.moveLeft();
 		
-		else if(direction == enemy2.RIGHT && enemy2.isStatic())
+		else if(direction == enemy1.RIGHT && enemy1.isStatic())
 			enemy2.moveRight();
 		
-		else if(direction == enemy2.DOWN && enemy2.isStatic())
+		else if(direction == enemy1.DOWN && enemy1.isStatic())
 			enemy2.moveDown();
 	}
 	
@@ -377,16 +389,16 @@ public class GLaDOS {
 		}
 		
 		/** Movimento do inimigo */
-		if(direction == enemy3.UP && enemy3.isStatic())
+		if(direction == enemy3.UP && enemy1.isStatic())
 			enemy3.moveUp();
 		
-		else if(direction == enemy3.LEFT && enemy3.isStatic())
+		else if(direction == enemy3.LEFT && enemy1.isStatic())
 			enemy3.moveLeft();
 		
-		else if(direction == enemy3.RIGHT && enemy3.isStatic())
+		else if(direction == enemy3.RIGHT && enemy1.isStatic())
 			enemy3.moveRight();
 		
-		else if(direction == enemy3.DOWN && enemy3.isStatic())
+		else if(direction == enemy3.DOWN && enemy1.isStatic())
 			enemy3.moveDown();
 	}
 	
@@ -400,7 +412,6 @@ public class GLaDOS {
     }
 	
 	public int getNumVivos() { return nAlive; }
-	public void setNumVivos() { this.nAlive = 1; }
 	public void died() { nAlive--; }
 	
 }
