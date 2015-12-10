@@ -261,7 +261,7 @@ public class Play extends GameState{
 		bdef.position.set(48.1f/PPM,48.1f/PPM);
 		bdef.type = BodyType.DynamicBody;
 		Body body = world.createBody(bdef);
-		shape.setAsBox(12/PPM, 12/PPM);
+		shape.setAsBox(15/PPM, 15/PPM);
 		fdef.shape =shape;
 		fdef.filter.categoryBits = B2DVars.BIT_PLAYER;
 		body.setSleepingAllowed(false);
@@ -306,7 +306,7 @@ public class Play extends GameState{
 		bdef.position.set(432.1f/PPM, 48.1f/PPM);
 		bdef.type = BodyType.DynamicBody;
 		Body body = world.createBody(bdef);
-		shape.setAsBox(12/PPM, 12/PPM);
+		shape.setAsBox(15/PPM, 15/PPM);
 		fdef.shape = shape;
 		fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 		fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION;
@@ -371,7 +371,7 @@ public class Play extends GameState{
 		bdef.position.set(432.1f/PPM, 432.1f/PPM);
 		bdef.type = BodyType.DynamicBody;
 		Body body = world.createBody(bdef);
-		shape.setAsBox(12/PPM, 12/PPM);
+		shape.setAsBox(15/PPM, 15/PPM);
 		fdef.shape =shape;
 		fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 		fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION;
@@ -436,7 +436,7 @@ public class Play extends GameState{
 	bdef.position.set(48.1f/PPM, 432.1f/PPM);
 	bdef.type = BodyType.DynamicBody;
 	Body body = world.createBody(bdef);
-	shape.setAsBox(12/PPM, 12/PPM);
+	shape.setAsBox(15/PPM, 15/PPM);
 	fdef.shape =shape;
 	fdef.filter.categoryBits = B2DVars.BIT_ENEMY;
 	fdef.filter.maskBits = B2DVars.BIT_BOMB | B2DVars.BIT_EXPLOSION;

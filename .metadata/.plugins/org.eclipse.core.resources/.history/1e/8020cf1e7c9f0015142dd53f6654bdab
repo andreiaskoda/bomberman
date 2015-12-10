@@ -51,14 +51,14 @@ public class MyContactListener implements ContactListener{
 		
 		if(fa.getUserData() != null && fb.getUserData() != null){
 			
-			/*if( (fb.getUserData().equals("player") &&
+			if( (fb.getUserData().equals("player") &&
 							(fa.getUserData().equals("CENTER_E1") 
 							|| fa.getUserData().equals("CENTER_E2")
 							|| fa.getUserData().equals("CENTER_E3")) )
 					|| (fa.getUserData().equals("player") && fb.getUserData().equals("CENTER_E1") 
 							|| fb.getUserData().equals("CENTER_E2")
 							|| fb.getUserData().equals("CENTER_E3")) )
-				this.gameOver = true;  */
+				this.gameOver = true; 
 
 			if(fb.getUserData().equals("activeBomb")){
 				faux = fb;

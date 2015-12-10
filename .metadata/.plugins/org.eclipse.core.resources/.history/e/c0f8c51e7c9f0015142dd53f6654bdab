@@ -51,9 +51,6 @@ public void create (){
 	hudCam = new OrthographicCamera();
 	hudCam.setToOrtho(false,480,480);
 	gsm = new GameStateManager(this);
-	
-	//res.loadMusic
-	
 }
 
 private void loadTextures() {
@@ -93,9 +90,6 @@ private void loadTextures() {
 	res.loadTexture("inimigo3cima.png", "e3up");
 	res.loadTexture("inimigo3direita.png", "e3right");
 	res.loadTexture("inimigo3esquerda.png", "e3left");
-	
-	
-	
 }
 
 	public void render ()	{

@@ -80,7 +80,7 @@ public class GLaDOS {
 		this.cl = cl;
 		
 		createMatrix();
-		printMatrix(0,0);
+		
 		// Verificar quantos inimigos estão vivos
 		if(nAlive == 3) {
 			this.moveEnemy3();

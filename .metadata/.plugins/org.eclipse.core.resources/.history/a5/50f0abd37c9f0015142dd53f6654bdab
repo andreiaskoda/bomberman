@@ -52,26 +52,6 @@ public class GLaDOS {
 		risk = new int[14][14];
 	}
 	
-	
-	private void printMatrix(int y, int x) {
-		System.out.println(" ");
-		for(int i = 0; i < 13; i++){
-			for(int j = 0; j < 13; j++) {
-				if(position[i][j] == -2)
-					System.out.print("p   ");
-				else if(position[i][j] == PLAYER)
-					System.out.print("P ");
-				else if(i == x && j == y)
-					System.out.print("B ");
-				else
-					System.out.print(position[j][i] + "   ");
-			}
-			System.out.println(" ");
-		}
-			
-	}
-	
-	
 	public void moveEnemy(Player player, MyContactListener cl, ArrayList<Bomb> bombs) {
 		this.bombs = bombs;
 		//positionBombs();
@@ -80,7 +60,7 @@ public class GLaDOS {
 		this.cl = cl;
 		
 		createMatrix();
-		printMatrix(0,0);
+		
 		// Verificar quantos inimigos estão vivos
 		if(nAlive == 3) {
 			this.moveEnemy3();
