@@ -13,8 +13,8 @@ public class Player extends B2DSprite {
 	private float time;
 	private float x1;
 	private float y1;
-	private int estado;
-	private int ultimoEstado;
+	private int state;
+	private int lastState;
 	private int numBombs;
 	private int totalBombs;
 	private Texture bomberUp;
@@ -33,8 +33,8 @@ public class Player extends B2DSprite {
 		setTextures();
 		TextureRegion[] sprites = TextureRegion.split(bomberDown, 32, 32)[0];
 		setAnimation(sprites, 1 / 10f);
-		ultimoEstado = GameKeys.DOWN;
-		estado = 0;
+		lastState = GameKeys.DOWN;
+		state = 0;
 		numBombs = 0;
 		totalBombs = 3;
 	}
@@ -55,10 +55,7 @@ public class Player extends B2DSprite {
 	/** Atualizando o sistema - animaÃ§Ã£o e estado do jogador */
 	public void update(float dt) {
 		animation.update(dt);
-		//System.out.println((int)((this.getPosition().x-16)/32)+","+(int)((this.getPosition().y-16)/32));
-		//System.out.println(estado+"    antes");
-		atualizaEstado();
-		//System.out.println(estado+"   depois");
+		updateState();
 	}
 	
 	/** MovimentaÃ§Ã£o do personagem para a direita */
@@ -67,9 +64,8 @@ public class Player extends B2DSprite {
 		setAnimation(sprites, 1 / 10f);
 		x1 = (int)this.getPosition().x+32;
 		y1 = (int)this.getPosition().y;
-		this.estado=GameKeys.RIGHT;
-		this.ultimoEstado=GameKeys.RIGHT;
-		//this.getBody().setLinearVelocity(1500f, 0);
+		this.state = GameKeys.RIGHT;
+		this.lastState = GameKeys.RIGHT;
 	}
 	
 	/** MovimentaÃ§Ã£o do personagem para a esquerda */
@@ -78,8 +74,8 @@ public class Player extends B2DSprite {
 		setAnimation(sprites, 1 / 10f);
 		x1 = (int)this.getPosition().x-32;
 		y1 = (int)this.getPosition().y;
-		this.estado=GameKeys.LEFT;
-		this.ultimoEstado=GameKeys.LEFT;
+		this.state = GameKeys.LEFT;
+		this.lastState = GameKeys.LEFT;
 		//this.getBody().setLinearVelocity(-1500f, 0);
 
 	}
@@ -90,8 +86,8 @@ public class Player extends B2DSprite {
 		setAnimation(sprites, 1 / 10f);
 		x1 = (int)this.getPosition().x;
 		y1 = (int)this.getPosition().y+32;
-		this.estado=GameKeys.UP;
-		this.ultimoEstado=GameKeys.UP;
+		this.state = GameKeys.UP;
+		this.lastState = GameKeys.UP;
 		//this.getBody().setLinearVelocity(0, 15f);
 
 	}
@@ -102,20 +98,20 @@ public class Player extends B2DSprite {
 		setAnimation(sprites, 1 / 10f);
 		x1 = (int)this.getPosition().x;
 		y1 = (int)this.getPosition().y-32;
-		this.estado=GameKeys.DOWN;
-		this.ultimoEstado=GameKeys.DOWN;
+		this.state = GameKeys.DOWN;
+		this.lastState = GameKeys.DOWN;
 		//this.getBody().setLinearVelocity(0, -1500f);
 	}
 	
 	/** AnimaÃ§Ã£o para o bomberman parado */
-	public void animacaoParado() {
+	public void animationStop() {
 		
 		TextureRegion[] sprites;
-		if(ultimoEstado == GameKeys.UP)
+		if(lastState == GameKeys.UP)
 			sprites = TextureRegion.split(stopUp, 32, 32)[0];
-		else if(ultimoEstado == GameKeys.LEFT)
+		else if(lastState == GameKeys.LEFT)
 			sprites = TextureRegion.split(stopLeft, 32, 32)[0];
-		else if(ultimoEstado == GameKeys.RIGHT)
+		else if(lastState == GameKeys.RIGHT)
 			sprites = TextureRegion.split(stopRight, 32, 32)[0];
 		else
 			sprites = TextureRegion.split(stopDown, 32, 32)[0];
@@ -123,35 +119,35 @@ public class Player extends B2DSprite {
 	}
 	
 	
-	//animação morrendo - criei este estado fantasma para a funçao está parado não sobrescreva a animação
-	public void animacaoMorrendo() {
+	//animaï¿½ï¿½o morrendo - criei este estado fantasma para a funï¿½ao estï¿½ parado nï¿½o sobrescreva a animaï¿½ï¿½o
+	public void animationDying() {
 		
 		TextureRegion[] sprites=TextureRegion.split(bomberdead, 32, 32)[0];
-		estado=-1;
+		state = -1;
 		setAnimation(sprites, 1/2f);
 	}
 	
 	
 	/** Verificando se estÃ¡ parado */
-	public boolean estaParado(){ return estado == 0;}
+	public boolean isStatic(){ return state == 0;}
 	
 	/** Atualizando o estado (parado, andando cima, baixo, direita ou esquerda) */
-	private void atualizaEstado(){
+	private void updateState(){
 		
 
 		
 		/** Se estiver parado */
-		if(estado == 0) {
-			if(ultimoEstado == GameKeys.UP) {
+		if(state == 0) {
+			if(lastState == GameKeys.UP) {
 				TextureRegion[] sprites = TextureRegion.split(stopUp, 32, 32)[0];
 				setAnimation(sprites, 1 / 10f);
-			} else if(ultimoEstado == GameKeys.DOWN) {
+			} else if(lastState == GameKeys.DOWN) {
 				TextureRegion[] sprites = TextureRegion.split(stopDown, 32, 32)[0];
 				setAnimation(sprites, 1 / 10f);
-			} else if(ultimoEstado == GameKeys.RIGHT) {
+			} else if(lastState == GameKeys.RIGHT) {
 				TextureRegion[] sprites = TextureRegion.split(stopRight, 32, 32)[0];
 				setAnimation(sprites, 1 / 10f);
-			}  else if(ultimoEstado == GameKeys.LEFT){
+			}  else if(lastState == GameKeys.LEFT){
 				TextureRegion[] sprites = TextureRegion.split(stopLeft, 32, 32)[0];
 				setAnimation(sprites, 1 / 10f);
 			} 
@@ -159,39 +155,35 @@ public class Player extends B2DSprite {
 		}
 		
 		/** Se estiver para andar para cima */
-		else if(estado==GameKeys.UP){
+		else if(state == GameKeys.UP){
 			if((int)this.getPosition().y<y1){
-				//System.out.println((int)this.getPosition().y);
 				this.getBody().setLinearVelocity(0, 15000f);
-			} else this.estado=0;		
+			} else this.state=0;		
 			
 		/** Se estiver para andar para baixo */
-		} else if(estado==GameKeys.DOWN){
+		} else if(state == GameKeys.DOWN){
 			if((int)this.getPosition().y>y1){
-				//System.out.println((int)this.getPosition().y);
 				this.getBody().setLinearVelocity(0, -15000f);
-			} else this.estado=0;	
+			} else this.state=0;	
 			
 		/** Se estiver para andar para a esquerda */
-		} else if(estado==GameKeys.LEFT){
+		} else if(state == GameKeys.LEFT){
 			if((int)this.getPosition().x>x1){
-				//System.out.println((int)this.getPosition().y);
 				this.getBody().setLinearVelocity(-15000f, 0);
-			} else this.estado=0;	
+			} else this.state = 0;	
 			
 		/** Se estiver para andar para a direita */
-		} else if(estado==GameKeys.RIGHT){
+		} else if(state == GameKeys.RIGHT){
 			if((int)this.getPosition().x<x1){
-				//System.out.println((int)this.getPosition().y);
 				this.getBody().setLinearVelocity(15000f, 0);
-			} else this.estado=0;
+			} else this.state = 0;
 		}
 	}
 	
-	private void colocouBomba() { numBombs++; }
-	private void explodiuBomba() { numBombs--; }
-	private int getBombas() { return numBombs; }
-	private int getTotalBombas() { return totalBombs; }
+	private void putBomb() { numBombs++; }
+	private void explodedBomba() { numBombs--; }
+	private int getBomb() { return numBombs; }
+	private int getTotalBombs() { return totalBombs; }
 	
 		
 }

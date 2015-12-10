@@ -60,60 +60,90 @@ public class MyContactListener implements ContactListener{
 							|| fb.getUserData().equals("CENTER_E3")) )
 				this.gameOver = true;
 
-			if(fb.getUserData().equals("bombaAtiva")){
+			if(fb.getUserData().equals("activeBomb")){
 				faux = fb;
 				fb = fa;
 				fa = faux;
 			}
 			
 			if(fa.getUserData().equals("player") &&
-					fb.getUserData().equals("bombaInativa")){
-				//System.out.println("contact");
+				fb.getUserData().equals("inactiveBomb")){
 				nct++;
 			}
 			
-			if(fa.getUserData().equals("player") &&	fb.getUserData().equals("explosao")){
+			if(fa.getUserData().equals("player") &&	fb.getUserData().equals("explosion")){
 				this.gameOver = true;
 			}
 			
-			if(fa.getUserData().equals("enemy1") &&	fb.getUserData().equals("explosao")) {
+			if(fa.getUserData().equals("enemy1") &&	fb.getUserData().equals("explosion")) {
 				this.e1dies = true;
 				bodiesToRemove.add(fa.getBody());
 			}
 				
-			if(fa.getUserData().equals("enemy2") &&	fb.getUserData().equals("explosao")) {
+			if(fa.getUserData().equals("enemy2") &&	fb.getUserData().equals("explosion")) {
 				this.e2dies = true;
 				bodiesToRemove.add(fa.getBody());
 			}
 				
-			if(fa.getUserData().equals("enemy3") &&	fb.getUserData().equals("explosao")) {
+			if(fa.getUserData().equals("enemy3") &&	fb.getUserData().equals("explosion")) {
 				this.e3dies = true;
 				bodiesToRemove.add(fa.getBody());
 			}
 			
 			/** Verificando em volta do bomberman */
-			if (fa.getUserData()!=null && fb.getUserData().equals("UP")){				
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP"))			
 				ncu++;
-				//this.setBlockedUp(true);
-			}
-			
-			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN")){
-				//this.setBlockedDown(true);
+
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN"))
 				ncd++;
-			}
 			
-			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT")){
-				//this.setBlockedLeft(true);
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT"))
 				ncl++;
-			}
 			
-			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT")){
-				//this.setBlockedRight(true);
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT"))
 				ncr++;
-			}
 			
 			
+			/** Verificando em volta do inimigo 1 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E1"))			
+				e1u++;
 			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E1"))
+				e1d++;
+		
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E1"))
+				e1l++;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E1"))
+				e1r++;
+			
+			/** Verificando em volta do inimigo 2 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E2"))			
+				e2u++;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E2"))
+				e2d++;
+		
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E2"))
+				e2l++;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E2"))
+				e2r++;
+			
+			/** Verificando em volta do inimigo 3 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E3"))			
+				e3u++;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E3"))
+				e3d++;
+		
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E3"))
+				e3l++;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E3"))
+				e3r++;
 			
 		}
 	}
@@ -127,41 +157,68 @@ public class MyContactListener implements ContactListener{
 		if(fa.getUserData()!=null && fb.getUserData()!=null){
 
 			Fixture faux;
-			if(fb.getUserData().equals("bombaAtiva")){
-				faux=fb;
-				fb=fa;
-				fa=faux;
+			if(fb.getUserData().equals("activeBomb")){
+				faux = fb;
+				fb = fa;
+				fa = faux;
 			}
 			
-			if(fa.getUserData().equals("player") &&
-					fb.getUserData().equals("bombaInativa")){
-				//System.out.println("end contact");
+			if(fa.getUserData().equals("player") && 
+					fb.getUserData().equals("inactiveBomb"))
 				nct--;
-			}
-
-			//System.out.println(fa.getUserData()+" <-fa , fb->"+fb.getUserData());
-			if (fa.getUserData()!=null && fb.getUserData().equals("UP")){
-				//this.setBlockedUp(false);
-				//System.out.println("up liberado");
+			
+			/** Verificando em volta do bomberman */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP"))
 				ncu--;
-			}
 			
-			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN")){
-				//this.setBlockedDown(false);
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN"))
 				ncd--;				
-			}
 			
-			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT")){
-				//this.setBlockedLeft(false);
-				//System.out.println("left liberado");
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT"))
 				ncl--;				
-			}
 			
-			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT")){
-				//this.setBlockedRight(false);
-				//System.out.println("right liberado");
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT"))
 				ncr--;
-			}
+			
+			/** Verificando em volta do inimigo 1 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E1"))
+				e1u--;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E1"))
+				e1d--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E1"))
+				e1l--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E1"))
+				e1r--;
+			
+			/** Verificando em volta do inimigo 2 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E2"))
+				e2u--;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E2"))
+				e2d--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E2"))
+				e2l--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E2"))
+				e2r--;
+
+			/** Verificando em volta do inimigo 3 */
+			if (fa.getUserData()!=null && fb.getUserData().equals("UP_E3"))
+				e3u--;
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("DOWN_E3"))
+				e3d--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("LEFT_E3"))
+				e3l--;				
+			
+			if (fa.getUserData()!=null && fb.getUserData().equals("RIGHT_E3"))
+				e3r--;
+			
 		}
 		
 	}
@@ -176,6 +233,8 @@ public class MyContactListener implements ContactListener{
 		// TODO Auto-generated method stub
 	}
 	
+	
+	/** Funções para verificar se o bomberman pode andar */
 	public boolean isOnTop(){
 		if(nct>0)
 			return true;
@@ -189,8 +248,6 @@ public class MyContactListener implements ContactListener{
 		else
 			return false;
 	}
-
-	
 
 	public boolean isBlockedDown() {
 		if(ncd>0)
@@ -206,14 +263,100 @@ public class MyContactListener implements ContactListener{
 			return false;
 	}
 
-	
-
 	public boolean isBlockedRight() {
 		if(ncr>0)
 			return true;
 		else
 			return false;
 	}
+	
+	/** Funções para verificar se o inimigo 1 pode andar */
+	public boolean enemy1blockedUp() {
+		if(e1u>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy1blockedDown() {
+		if(e1d>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy1blockedLeft() {
+		if(e1l>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy1blockedRight() {
+		if(e1r>0)
+			return true;
+		else
+			return false;
+	}
+	
+	/** Funções para verificar se o inimigo 2 pode andar */
+	public boolean enemy2blockedUp() {
+		if(e2u>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy2blockedDown() {
+		if(e2d>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy2blockedLeft() {
+		if(e2l>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy2blockedRight() {
+		if(e2r>0)
+			return true;
+		else
+			return false;
+	}
+	
+	/** Funções para verificar se o inimigo 3 pode andar */
+	public boolean enemy3blockedUp() {
+		if(e3u>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy3blockedDown() {
+		if(e3d>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy3blockedLeft() {
+		if(e3l>0)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean enemy3blockedRight() {
+		if(e3r>0)
+			return true;
+		else
+			return false;
+	}
+	
 
 	public boolean isTheGameOver(){	return gameOver; }
 	
@@ -229,14 +372,27 @@ public class MyContactListener implements ContactListener{
 		this.e2dies = false;
 		this.e3dies = false;
 
-		 ncu=0;
-		 ncd=0;
-		 ncr=0;
-		 ncl=0;
-		 nct=0;
+		 ncu = 0;
+		 ncd = 0;
+		 ncr = 0;
+		 ncl = 0;
+		 nct = 0;
+		 
+		 e1u = 0;
+		 e1d = 0;
+		 e1r = 0;
+		 e1l = 0;
+
+		 e2u = 0;
+		 e2d = 0;
+		 e2r = 0;
+		 e2l = 0;
+
+		 e3u = 0;
+		 e3d = 0;
+		 e3r = 0;
+		 e3l = 0;
 		
 	}
-	
-	
 	
 }

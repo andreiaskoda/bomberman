@@ -3,6 +3,7 @@
 	<name>Bomberman-core</name>
 	<comment></comment>
 	<projects>
+		<project>Bomberman-desktop</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

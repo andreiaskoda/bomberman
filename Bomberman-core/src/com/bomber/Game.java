@@ -74,7 +74,6 @@ private void loadTextures() {
 	res.loadTexture("xpPontaBaixo.png", "xpTipDown");
 	res.loadTexture("xpPontaDireita.png", "xpTipRight");
 	res.loadTexture("xpPontaEsquerda.png", "xpTipLeft");
-	//res.loadTexture("red.png", "red");
 	res.loadTexture("gameover.png", "gameover");
 	
 	// Textures dos inimigos
@@ -92,36 +91,29 @@ private void loadTextures() {
 	res.loadTexture("inimigo3esquerda.png", "e3left");
 }
 
-public void render ()	{
-	
-	accum += Gdx.graphics.getDeltaTime();
-	
-	while(accum>=STEP){
-		accum -= STEP;
-		gsm.update(STEP);
-		gsm.render();
-		GameKeys.update();
-	//Gdx.gl.glClearColor(0, 0, 0, 1);
-	//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	
-	//gsm.update(Gdx.graphics.getDeltaTime());
-	//gsm.draw();
+	public void render ()	{
+		
+		accum += Gdx.graphics.getDeltaTime();
+		
+		while(accum>=STEP){
+			accum -= STEP;
+			gsm.update(STEP);
+			gsm.render();
+			GameKeys.update();
+		}
 	
 	}
+	public void resize(int w,int h){
 	
+	}
+	public void pause () {
 	
-}
-public void resize(int w,int h){
-
-}
-public void pause () {
-
-}
-public void resume()	{
-
-}
-public void dispose(){
-
-}
+	}
+	public void resume()	{
+	
+	}
+	public void dispose(){
+	
+	}
 
 }

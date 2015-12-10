@@ -23,15 +23,13 @@ import handlers.MyContactListener;
 public class Bomb extends B2DSprite {
 
 	private float time;
-	private int estado;
+	private int state;
 	private boolean kabum;
 	
 	private MyContactListener cl;
 	
-	//variavel que diz se o player setou a bomba e ainda está em cima dela
-	private boolean playerEmCima;
-	
-	
+	// Variável que diz se o player setou a bomba e ainda está em cima dela
+	private boolean playerTop;
 	
 	private Texture xpUp;
 	private Texture xpDown;
@@ -43,17 +41,18 @@ public class Bomb extends B2DSprite {
 	private Texture xpTipLeft;
 	private Texture xpTipRight;
 	
-	// ESTADOS (definir melhores tempos)
-	//0-normal
-	//1-quase explodindo 
-	//2-explodir
+	/** ESTADOS (definir melhores tempos)
+	 * 0 - normal
+	 * 1 - quase explodindo
+	 * 2 - explodir
+	 */
 	
 	public Bomb(Body body,MyContactListener cl) {
 		super(body);		
 		time = 0;
-		estado = 0;
+		state = 0;
 		kabum = false;
-		playerEmCima = true;
+		playerTop = true;
 		xpUp = Game.res.getTexture("xpUp");
 		xpDown = Game.res.getTexture("xpDown");
 		xpRight = Game.res.getTexture("xpRight");
@@ -70,17 +69,15 @@ public class Bomb extends B2DSprite {
 		animation.update(dt);
 		time+=dt;
 
-		atualizaEstado();
-		if(estado==2)
+		updateState();
+		
+		if(state==2)
 			criaExplosao();
 	}
 	
-	private void atualizaEstado(){
-		
-		
-		
+	private void updateState(){
 		//obs tive varios problemas para fazer esta parte, a solução que encontrei para desbugar o contato foi recriar uma fixture
-		if(this.playerEmCima==true){
+		if(this.playerTop==true){
 			
 			//se o player n�o est� mais em cima desta bomba
 			if(!cl.isOnTop()){
@@ -103,19 +100,18 @@ public class Bomb extends B2DSprite {
 				//bomba inativa é um sensor
 				//bomba ativa não é sensor
 				
-				
-				this.getBody().getFixtureList().first().setUserData("bombaAtiva");
+				this.getBody().getFixtureList().first().setUserData("activeBomb");
 				// boolean para não entrar mais nesse if
-				playerEmCima=false;
+				playerTop=false;
 			}
 		}
 		
 		if(time <= 2)
-			estado = 0;
+			state = 0;
 		else if(time >= 2 && time <= 3)
-			estado = 1;
+			state = 1;
 		else if(time>3&& time <3.5f)
-			estado = 2;
+			state = 2;
 		else
 			kabum = true;
 	}
@@ -128,11 +124,11 @@ public class Bomb extends B2DSprite {
 	public void render (SpriteBatch sb){
 		float stateTime;
 		sb.begin();
-		if(estado==0){
+		if(state == 0){
 			Texture tex = Game.res.getTexture("bomba");
 			sb.draw(tex,(int)body.getPosition().x-16, (int)body.getPosition().y-16,32,32);
 		}
-		else if (estado==1) {
+		else if (state == 1) {
 			Texture tex = Game.res.getTexture("bombaExp");
 			TextureRegion[] sprites = TextureRegion.split(tex, 32, 32)[0];
 		} else {
@@ -167,7 +163,6 @@ public class Bomb extends B2DSprite {
 				sb.draw(xpUp,(int)body.getPosition().x-16, (int)body.getPosition().y-16+32,32,32);
 				if((int)((this.getPosition().y-16)/32) < 12)
 					sb.draw(xpTipUp,(int)body.getPosition().x-16, (int)body.getPosition().y-16+64,32,32);
-		
 			}
 			
 		}
@@ -184,7 +179,7 @@ public class Bomb extends B2DSprite {
 			fdef.shape = shape;
 			fdef.isSensor = true;
 			fdef.filter.categoryBits = B2DVars.BIT_EXPLOSION;
-			this.getBody().createFixture(fdef).setUserData("explosao");
+			this.getBody().createFixture(fdef).setUserData("explosion");
 		}
 		
 		if((int)((this.getPosition().x-16)/32) %2 != 0){
@@ -192,7 +187,7 @@ public class Bomb extends B2DSprite {
 			fdef.shape = shape;
 			fdef.filter.categoryBits = B2DVars.BIT_EXPLOSION;
 			fdef.isSensor = true;
-			this.getBody().createFixture(fdef).setUserData("explosao");
+			this.getBody().createFixture(fdef).setUserData("explosion");
 		}
 	}
 	

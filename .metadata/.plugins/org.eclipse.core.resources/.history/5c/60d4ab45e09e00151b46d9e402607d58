@@ -1,0 +1,242 @@
+package com.bomber.entities;
+
+import java.util.ArrayList;
+import java.util.Stack;
+
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import com.bomber.*;
+import handlers.*;
+
+/** INFORMAÇÕES SOBRE A INTELIGÊNCIA ARTIFICIAL
+ * 1) Verificar quantos inimigos existem vivos
+ * a) Caso tenham três vivos:
+ *  
+ * 
+ * 
+ * 2) Verificar posição do bomberman
+ * 3) Verificar posição de bombas no campo
+ *  */
+
+public class GLaDOS {
+	
+	private int nAlive;
+	
+	private Enemy enemy1;
+	private Enemy enemy2;
+	private Enemy enemy3;
+	
+	private int[][] position;
+	
+	private ArrayList<Bomb> bombs;
+	
+	public GLaDOS(Enemy e1, Enemy e2, Enemy e3) {
+		nAlive = 3;
+		this.enemy1 = e1;
+		this.enemy2 = e2;
+		this.enemy3 = e3;
+		bombs = new ArrayList<Bomb>();
+		int[][] position = new int[13][13];
+	}
+	
+	public void moveEnemy(Player player, MyContactListener cl) {		
+		Enemy s1, s2;
+		positionBombs();
+		int x = (int) player.getPosition().x/32, y = (int) player.getPosition().y/32;
+		
+		// Verificar quantos inimigos estão vivos
+		if(nAlive == 3) {
+			int x1, x2, x3, y1, y2, y3;
+			
+			// Salvando a posição dos inimigos
+			x1 = (int) enemy1.getPosition().x/32;
+			y1 = (int) enemy1.getPosition().y/32;
+			x2 = (int) enemy2.getPosition().x/32;
+			y2 = (int) enemy2.getPosition().y/32;
+			x3 = (int) enemy3.getPosition().x/32;
+			y3 = (int) enemy3.getPosition().y/32;
+			
+			
+			
+			
+		} else if (nAlive == 2) {
+			int x1, x2, y1, y2;
+			
+			// Verificando quem está morto
+			if(cl.isEnemy1dead()) {
+				s1 = enemy2;
+				s2 = enemy3;
+			} else if(cl.isEnemy2dead()) {
+				s1 = enemy1;
+				s2 = enemy3;
+			} else {
+				s1 = enemy1;
+				s2 = enemy2;
+			}
+			
+			// Salvando a posição dos inimigos
+			x1 = (int) s1.getPosition().x/32;
+			y1 = (int) s1.getPosition().y/32;
+			x2 = (int) s2.getPosition().x/32;
+			y2 = (int) s2.getPosition().y/32;
+			
+			
+			
+		} else {
+			int x1, y1;
+			
+			// Verificando quem está vivo
+			if(!cl.isEnemy1dead())
+				s1 = enemy1;
+			else if(!cl.isEnemy2dead())
+				s1 = enemy2;
+			else
+				s1 = enemy3;
+			
+			// Salvando a posição do inimigo
+			x1 = (int) s1.getPosition().x/32;
+			y1 = (int) s1.getPosition().y/32;
+			
+			// Verificando se o jogador está mais distante em x ou em y
+			if(Math.abs(x - x1) > Math.abs(y - y1)) {
+				
+				// Vendo se o player está mais acima do inimigo
+				if(x > x1) {
+					
+				}
+				
+			} else {
+				
+			}
+		}
+		
+		
+		
+		
+	}
+	
+	/** Retorna uma matriz com 0 aonde não existe risco, -1 aonde existe
+	 * e -2 onde existe parede */
+	private void positionBombs() {
+		
+		for(int i = 0; i < 13; i++) {
+			for(int j = 0; j < 13; j++)  {
+				if(i%2 == 1 && j%2 == 1)
+					position[i][j] = -2;
+				else
+					position[i][j] = 0;
+			}
+		}
+				
+		for(Bomb b : bombs) 
+			position[(int)(b.getPosition().x-16)/32][(int)(b.getPosition().y-16)/32] = -1;
+		
+		
+		
+		for(int i = 0; i < 13; i++) {
+			for(int j = 0; j < 13; j++) {
+				if(position[i][j] == 1) {
+					// Marcando dois para cima
+					if(j+1 < 12 && position[i][j+1] != 2) {
+						position[i][j+2] = -1;
+						if(j+2 < 12 && position[i][j+2] != 2)
+							position[i][j+2] = -1;
+					}
+					
+					// Marcando dois para baixo
+					if(j-1 >= 0 && position[i][j-1] != 2) {
+						position[i][j-2] = -1;
+						if(j+2 >= 0 && position[i][j-2] != 2)
+							position[i][j-2] = -1;
+					}
+					
+					// Marcando dois para a esquerda
+					if(i-1 >=0 && position[i-1][j] != 2) {
+						position[i-1][j] = -1;
+						if(i+2 >= 0 && position[i-2][j] != 2)
+							position[i-2][j] = -1;
+					}
+					
+					// Marcando dois para a direita
+					if(i+1 < 12 && position[i+1][j] != 2) {
+						position[i+1][j] = -1;
+						if(i+2 < 12 && position[i+2][j] != 2)
+							position[i+2][j] = -1;
+					}
+				}
+			}
+		}
+	}
+	
+	private void smallPath(int x, int y) {
+		Stack<Vector2> stack = new Stack<Vector2>();
+		boolean found = false;
+		Vector2 v = new Vector2(x, y);
+		int steps;
+		
+		stack.push(v);
+		
+		while(!found || !stack.empty()) {
+			v = stack.pop();
+			int xo = (int)v.x, yo = (int)v.y;
+			steps = position[xo][yo];
+			
+			
+			
+			if(yo + 1 <= 12) {
+				// Olhando para cima do ponto
+				if(position[xo][yo + 1] > steps + 1 && position[xo][yo + 1] >= 0) {
+					stack.add(new Vector2(xo, yo+1));
+					position[xo][yo + 1] = steps + 1;
+				}
+			}
+			
+			if(yo - 1 >= 0) {
+				// Olhando para baixo do ponto
+				if(position[xo][yo - 1] > steps + 1 && position[xo][yo - 1] >= 0) {
+					stack.add(new Vector2(xo, yo+1));
+					position[xo][yo - 1] = steps + 1;
+				}
+			}
+			
+			if(xo + 1 <= 12) {
+				// Olhando para a direita do ponto
+				if(position[xo + 1][yo] > steps + 1 && position[xo + 1][yo] >= 0) {
+					stack.add(new Vector2(xo+1, yo));
+					position[xo + 1][yo] = steps + 1;
+				}
+			}
+			
+			if(xo - 1 >= 0) {
+				// Olhando para a esquerda do ponto
+				if(position[xo - 1][yo] > steps + 1 && position[xo - 1][yo] >= 0) {
+					stack.add(new Vector2(xo+1, yo));
+					position[xo - 1][yo] = steps + 1;
+				}
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	/** Coisa rosa */
+	private void moveEnemy1() {
+		
+	}
+	
+	/** Fantasma estranho */
+	private void moveEnemy2() {
+		
+	}
+	
+	/** Morcego da hora */
+	private void moveEnemy3() {
+		
+	}
+	
+	public int getNumVivos() { return nAlive; }
+	public void died() { nAlive--; }
+	
+}

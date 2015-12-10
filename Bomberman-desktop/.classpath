@@ -4,6 +4,6 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="src" path="/Bomberman-core"/>
 	<classpathentry kind="src" path="assets"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tudo"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Tudo"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

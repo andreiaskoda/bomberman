@@ -17,17 +17,16 @@ public class B2DSprite {
 	public B2DSprite(Body body){
 		this.body=body;
 		animation =new Animation();
-		
 	}
+	
 	public void setAnimation(TextureRegion[] reg,float delay){
 		animation.setFrames(reg,delay);
 		width = reg[0].getRegionWidth();
 		height = reg[0].getRegionHeight();
-		
 	}
+	
 	public void update(float dt){
 		animation.update(dt);
-		
 	}
 	
 	public void render (SpriteBatch sb){
